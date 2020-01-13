@@ -1,0 +1,686 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Nearby API",
+    "description": "Nearby Places API, enables you to add discovery and search of nearby POIs by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category.<P>The MapmyIndia Nearby API Platform provide following features:<ul><li>Nearby Search(Generic)</li><li>Custom Code Nearby Search </li><li>POD Filter Nearby Search</li></ul></p><h2>New Feature(s):</h2><p><ul><li>`Filter`</li></ul><p></br> <h2>Filter</h2><p>We are introducing this new parameter to do more specific search using `key:value` pair(s) (e.g. cat_code:ABC123). <ul> <li>Each `key:value`pair is seperated by a seperator`,`</br> *(e.g. filter=cat_code:abc123,mac_plug_type:PN3)*.</br></br> <li>We can use two or more `values` for a `key` by putting either `OR(;)` or `AND($)` operator </br>*(e.g. cat_code:abc123;xyz123,mac_plug_type:PN3&PN2)*.</br></br> <li>By default  `key:value` pairs are treated as `AND($)` case.   </ul> <p>Suppose you want to search all electric vehical charging station of a particular brand*(e.g. \"Honda\" )* and of a particular plug type *(e.g. \"PN3\")* then you can use filter as:</br> </br> *(filter=cat_code:EVSTAN,brand_id:HONDAV,mac_plug_type:PN3)*</br></br> where EVSTAN is category code for EV station, HONDAV is brand_id for Honda and PN3 is plug type. </br></br> <b>Keys</b>: *\"cat_code\", \"brand_id\", \"partner_id\", \"mac_plug_type\".*</br></br> <b>Note(s):</b> <ul><li>`keys` & `values` are dynamic in nature.</br> <li>`,` This is used as an example operator to explain query.</ul> </br> </br> <h2>Custom Category Codes </h2><p> This will enable custom category code based nearby searching for customers*(e.g. Honda, HDFC)*.The search can be performed on the basis of either custom category code or MMI category codes or keywords. The output contains standard fields and a richInfo object for client-specific data. The RichInfo can have dynamic response parameters as per customer's requirement. This can be enabled on the basis of configuration provided at the time of onboarding customer's data. </br></br> <h2>POD </h2><p> Introducing \"pod\" parameter to search for villages. This parameter accepts \"vlg\" as value. The radius for village provides the range of distance. The radius for village search is 50 KM fixed.</br></br> \n<h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)` operator.  </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p></br> <h2>Security Type:</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br></br>\n\n\n<li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-near-by-api-example\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access. </p></br><h2>Other Info(s)</h2><ul> <li>URLs: the urls to use for UAT and Prod are: <code>https://atlasweb.mapmyindia.in/api/v3.5/places/nearby/json?</code> and <code>https://atlas.mapmyindia.com/api/places/nearby/json?</code></li>   <li>For any issues or questions please submit it to the support : <a href= \"https://www.mapmyindia.com/api/#f_cont\" target=\"_blank\"> API Support</a> if you do not have access to the support portal contact your service account manager with any questions.</li></ul></br> <h3>Example request:</h3> <code>https://atlas.mapmyindia.com/api/places/nearby/json?keywords=coffee;beer&refLocation=28.631460,77.217423</code></br></br></br></br>",
+    "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
+    "version": "V.4.2",
+    "contact": {
+      "name": "MapmyIndia API Support",
+      "url": "https://www.mapmyindia.com/api/#f_cont",
+      "email": "apisupport@mapmyindia.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://atlas.mapmyindia.com/api/places/nearby/json?"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Nearby Search",
+      "description": "This API search nearby places"
+    },
+    {
+      "name": "POD Search",
+      "description": "podFilter API search for villages and get basic details provide to user"
+    },
+    {
+      "name": "Custom code search",
+      "description": "Custom code search near places, pois like Honda Store, HDFC trough keywords with refLocation"
+    }
+  ],
+  "paths": {
+    "/APISearch": {
+      "get": {
+        "tags": [
+          "Nearby Search"
+        ],
+        "summary": "Searh for near pois with refLocation",
+        "description": "Enables you to add discovery and search of nearby POIs by searching for a generic keyword, Custom Codes",
+        "operationId": "NearbySearchAPI",
+        "parameters": [
+          {
+            "name": "Keywords",
+            "in": "query",
+            "description": "Generic keywrods search like FODCOF, Shoes, Coffee, Versace, Gucci, H&M, Adidas, Starbucks, B130 (POI, House Number, keyword, tag)",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "refLocation",
+            "in": "query",
+            "description": "Provides the location around which the search will be performed",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "provides number of the page to provide results from",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "provides configured sorting operations for the client on cloud. Below are the available sorts",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "description": "provides the range of distance to search over (default 1000, min, 500, max, 10000)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bounds",
+            "in": "query",
+            "description": "(x1,y1,x2,y2) Allows the developer to send in map bounds to provide a nearby search of the geobounds. where x1,y1 are the lat lng of",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "it takes in the country code. LKA, IND, BTN, BGD, NPL for Sri-Lanka, India, Bhutan, Bangladesh, Nepal respectively. Default is India (IND)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "*key:value* pair to specified our seach.(e.g. For all honda EV stations: *filter=cat_code:EVSTAN,brand_id:HONDAV*, where EVSTAN is category code and HONDAV is brand_id for Honda)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we’re found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied."
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily/hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong."
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api/places/nearby/json?",
+            "description": "MapmyIndia Generic Nearby search API"
+          }
+        ]
+      }
+    },
+    "/podsearch": {
+      "get": {
+        "tags": [
+          "POD Search"
+        ],
+        "summary": "podFilter is used to search for villages",
+        "description": "The radius for village search is 50 KM fixed and  as per the nearby API standards, \"keywords\" parameter is mandatory. It should also have \"vlg\" as value. A maximum of 10 villages is returned in the output for a request. Pagination can be used to render the next set of 10 villages and so on",
+        "parameters": [
+          {
+            "name": "Keywords",
+            "in": "query",
+            "description": "This parameter accepts \"vlg\" as value",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "refLocation",
+            "in": "query",
+            "description": "Provides the location around which the search will be performed",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pod",
+            "in": "query",
+            "description": "pod is search villages in 50 km radius and This parameter accepts \"vlg\" as value",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "*key:value* pair to specified our seach.(e.g. For all honda EV stations: *filter=cat_code:EVSTAN,brand_id:HONDAV*, where EVSTAN is category code and HONDAV is brand_id for Honda)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/podResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we’re found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied."
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily/hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong."
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api/places/nearby/json?",
+            "description": "MapmyIndia Generic Nearby search API"
+          }
+        ]
+      }
+    },
+    "/Customcodesearch": {
+      "get": {
+        "tags": [
+          "Custom code search"
+        ],
+        "summary": "Nearby search API for searching Honda Store near your refLocation",
+        "description": "The search can be performed on the basis of either custom category code or MMI category codes or keywords.",
+        "operationId": "custom code",
+        "parameters": [
+          {
+            "name": "Keywords",
+            "in": "query",
+            "description": "The custom code keywords like HNDAUT, HNDREP for searching near pois like Honda Stores.",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "refLocation",
+            "in": "query",
+            "description": "Provides the location around which the search will be performed.",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "*key:value* pair to specified our seach.(e.g. For all honda EV stations: *filter=cat_code:EVSTAN,brand_id:HONDAV*, where EVSTAN is category code and HONDAV is brand_id for Honda)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customcode_Response"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we’re found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied."
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily/hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong."
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api/places/nearby/json?",
+            "description": "MapmyIndia Generic Nearby search API"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Coordinate": {
+        "title": "Coordinate",
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "description": "Latitude",
+            "format": "double",
+            "example": 28.63146
+          },
+          "lng": {
+            "type": "number",
+            "description": "Longitude",
+            "format": "double",
+            "example": 77.217423
+          }
+        },
+        "description": "Georgraphic coordinate in decimal latitude/longitude format"
+      },
+      "Filter": {
+        "title": "Filter",
+        "type": "object",
+        "properties": {
+          "cat_code": {
+            "type": "string",
+            "description": "Category Code",
+            "format": "string",
+            "example": "MBLDNG"
+          },
+          "brand_id": {
+            "type": "string",
+            "description": "Brand ID",
+            "format": "string",
+            "example": "HONDAV"
+          },
+          "mac_plug_type": {
+            "type": "string",
+            "description": "MAC plug type",
+            "format": "string",
+            "example": "PN3"
+          },
+          "partner_id": {
+            "type": "string",
+            "description": "Partner ID",
+            "format": "string",
+            "example": "ABC123"
+          }
+        },
+        "description": "Sample of fields for specified search."
+      },
+      "Keywords": {
+        "title": "Keywords",
+        "required": [
+          "Keywords"
+        ],
+        "type": "object",
+        "properties": {
+          "Keywords": {
+            "type": "string",
+            "example": "coffee;beer"
+          }
+        },
+        "description": "The search can be performed on the basis of either custom category code or MMI category codes or keywords and send multiple keywords in a request."
+      },
+      "Response": {
+        "title": "Response",
+        "required": [
+          "distance",
+          "eloc",
+          "email",
+          "entryLatitude",
+          "entryLongitude",
+          "keywords",
+          "landlineNo",
+          "latitude",
+          "longitude",
+          "mobileNo",
+          "orderIndex",
+          "placeAddress",
+          "placeName",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "distance": {
+            "type": "string",
+            "example": 64,
+            "description": "provides the distance from the provided location bias in meters"
+          },
+          "eloc": {
+            "type": "string",
+            "example": "CHZZ3S",
+            "description": "Place Id of the location 6-char alphanumeric"
+          },
+          "email": {
+            "type": "string",
+            "example": null,
+            "description": "Email for contact"
+          },
+          "entryLatitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.631708,
+            "description": "latitude of the entrance of the location"
+          },
+          "entryLongitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.21665,
+            "description": "longitude of the entrance of the location"
+          },
+          "keywords": {
+            "type": "string",
+            "example": "FODCON",
+            "description": "provides an array of matched keywords or codes"
+          },
+          "landlineNo": {
+            "type": "number",
+            "example": 911133107634,
+            "description": "phone no for contact"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.631834,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.2169160000001,
+            "description": "longitude of the location"
+          },
+          "mobileNo": {
+            "type": "number",
+            "example": 919999827144,
+            "description": "Phone number for contact"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": 1,
+            "description": "the order where this result should be placed"
+          },
+          "placeAddress": {
+            "type": "string",
+            "example": "G-72, 1st Floor, Outer Circle, Connaught Place, New Delhi, Delhi, 110001\"",
+            "description": "Address of the location"
+          },
+          "placeName": {
+            "type": "string",
+            "example": "Lord of The Drinks",
+            "description": "Name of the location"
+          },
+          "type": {
+            "type": "string",
+            "example": "poi",
+            "description": "Type of location POI or Country or City"
+          }
+        }
+      },
+      "podKeywords": {
+        "title": "podKeywords",
+        "required": [
+          "Keywords"
+        ],
+        "type": "object",
+        "properties": {
+          "Keywords": {
+            "type": "string",
+            "example": "vlg"
+          }
+        },
+        "description": "This parameter accepts \"vlg\" as value"
+      },
+      "podResponse": {
+        "title": "podResponse",
+        "required": [
+          "distance",
+          "eloc",
+          "villageName",
+          "district",
+          "subDistrict",
+          "state",
+          "pincode",
+          "placeAddress",
+          "type",
+          "latitude",
+          "longitude",
+          "orderIndex"
+        ],
+        "type": "object",
+        "properties": {
+          "distance": {
+            "type": "string",
+            "example": 1264,
+            "description": "distance component show near by distance from your refLoaction"
+          },
+          "eloc": {
+            "type": "string",
+            "example": "2EAAS6"
+          },
+          "villageName": {
+            "type": "string",
+            "example": "Bilway"
+          },
+          "district": {
+            "type": "string",
+            "example": "Vidisha District"
+          },
+          "Subdistrict": {
+            "type": "string",
+            "example": "Basoda"
+          },
+          "state": {
+            "type": "string",
+            "example": "Madhya Pradesh"
+          },
+          "pincode": {
+            "type": "string",
+            "example": 464221
+          },
+          "placeAddress": {
+            "type": "string",
+            "example": "Basoda, Vidisha District, Madhya Pradesh, 464221"
+          },
+          "type": {
+            "type": "string",
+            "example": "Village"
+          },
+          "latitude": {
+            "type": "number",
+            "example": 23.953076010000075
+          },
+          "longitutde": {
+            "type": "number",
+            "example": 77.91979716000003
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "Customcode_Response": {
+        "title": "Customcode_Response",
+        "required": [
+          "distance",
+          "name",
+          "placeAddress",
+          "categoryCode",
+          "city",
+          "state",
+          "pincode",
+          "latitude",
+          "longitude",
+          "Merchant_id",
+          "Dealer_Ph_Num",
+          "Merchant_Key",
+          "dealertype",
+          "IWS_",
+          "Dealer_Code",
+          "orderIndex"
+        ],
+        "type": "object",
+        "properties": {
+          "distance": {
+            "type": "string",
+            "description": "distance component show near distance from your refLoaction",
+            "example": "435"
+          },
+          "name": {
+            "type": "string",
+            "example": "PRESTIGE HONDA - PHAGWARA",
+            "description": "name component of the address"
+          },
+          "placeAddress": {
+            "type": "string",
+            "example": "8-A MODEL TOWN G.T ROAD PHAGWARA",
+            "description": "Address of the location"
+          },
+          "categoryCode": {
+            "type": "string",
+            "example": "HNDAUT",
+            "description": "categoryCode component of the address"
+          },
+          "city": {
+            "type": "string",
+            "example": "Phagwara",
+            "description": "city component of the address"
+          },
+          "state": {
+            "type": "string",
+            "example": "Punjab",
+            "description": "state component of the address"
+          },
+          "pincode": {
+            "type": "string",
+            "example": 144401,
+            "description": "postalcode component of the address"
+          },
+          "latitude": {
+            "type": "number",
+            "example": 31.211088
+          },
+          "longitude": {
+            "type": "number",
+            "example": 75.771985
+          },
+          "Merchant_id": {
+            "type": "string",
+            "example": "Landma81725499004554",
+            "description": "Merchant_id component of the address"
+          },
+          "Dealer_Ph_Num": {
+            "type": "string",
+            "example": 919878797788,
+            "description": "Dealer_Ph_Num component of the address"
+          },
+          "Merchant_Key": {
+            "type": "string",
+            "example": "AyONzGU9zf5N7ucA",
+            "description": "Merchant_Key component of the address"
+          },
+          "dealertype": {
+            "type": "string",
+            "example": "1S",
+            "description": "dealertype component of the address"
+          },
+          "IWS_": {
+            "type": "string",
+            "example": "N",
+            "description": "iWS_ component of the address"
+          },
+          "Dealer_Code": {
+            "type": "string",
+            "example": "DD004E1",
+            "description": "Dealer_Code component of the address"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "mmi_auth": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://outpost.mapmyindia.com/api/security/oauth/token",
+            "scopes": {
+              "READ": "read authorization for API"
+            }
+          }
+        }
+      }
+    }
+  }
+}
