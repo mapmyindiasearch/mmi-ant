@@ -1,4 +1,4 @@
-{
+﻿{
   "openapi": "3.0.1",
   "info": {
     "title": "Autosuggest API",
@@ -21,7 +21,7 @@
     }
   ],
   "paths": {
-    "/places/search/json": {
+    "/{version}/places/search/json": {
       "get": {
         "tags": [
           "Autosuggest"
@@ -30,6 +30,22 @@
         "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.",
         "operationId": "Autosuggest",
         "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Version of the API",
+            "required": true,
+            "allowEmptyValue": true,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "enum": [
+                "",
+                4.4,
+                4.2
+              ]
+            }
+          },
           {
             "name": "query",
             "in": "query",
@@ -68,7 +84,7 @@
             }
           },
           {
-            "name": "pod*",
+            "name": "pod",
             "in": "query",
             "description": "It takes in the place type code which helps in restricting the results to certain chosen type.(e.g. SLC: SubLocality, LC:Locality, CITY: City, VLG:Village, SDIST: SubDistrict, DIST: District, STATE: State, SSLC: SubSubLocatlity.)",
             "allowEmptyValue": false,
@@ -77,7 +93,7 @@
             }
           },
           {
-            "name": "filter*",
+            "name": "filter",
             "in": "query",
             "description": " This parameter helps you restrict the result either by mentioning a bounded area or to certain eloc (6 digit code to any poi, locality, city, etc.) <li> filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513<li>filter=cop:YMCZ0J",
             "allowEmptyValue": false,

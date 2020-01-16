@@ -1,4 +1,4 @@
-{
+﻿{
   "openapi": "3.0.1",
   "info": {
     "title": "Text Search API",
@@ -21,7 +21,7 @@
     }
   ],
   "paths": {
-    "/places/textsearch/json": {
+    "/{version}/places/textsearch/json": {
       "get": {
         "tags": [
           "Text Search"
@@ -30,6 +30,22 @@
         "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request.",
         "operationId": "TextSearchAPI",
         "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Version of the API",
+            "required": true,
+            "allowEmptyValue": true,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "enum": [
+                "",
+                4.4,
+                4.2
+              ]
+            }
+          },
           {
             "name": "query",
             "in": "query",

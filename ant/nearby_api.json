@@ -1,4 +1,4 @@
-{
+﻿{
   "openapi": "3.0.1",
   "info": {
     "title": "Nearby API",
@@ -21,7 +21,7 @@
     }
   ],
   "paths": {
-    "/nearby/json": {
+    "/{version}/nearby/json": {
       "get": {
         "tags": [
           "Nearby"
@@ -30,6 +30,22 @@
         "description": "Nearby Places API, enables you to add discovery and search of nearby POIs by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category.",
         "operationId": "NearbySearchAPI",
         "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Version of the API",
+            "allowEmptyValue": true,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "enum": [
+                "",
+                4.4,
+                4.2
+              ]
+            }
+          },
           {
             "name": "keywords",
             "in": "query",
@@ -96,17 +112,16 @@
             }
           },
           {
-            "name": "pod*",
+            "name": "pod",
             "in": "query",
             "description": "pod is search villages in 50 km radius and This parameter accepts \"vlg\" as value",
             "allowEmptyValue": false,
-            "required": false,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "filter*",
+            "name": "filter",
             "in": "query",
             "description": "*key:value* pair to specified our seach.(e.g. For all honda EV stations: *filter=cat_code:EVSTAN,brand_id:HONDAV*, where EVSTAN is category code and HONDAV is brand_id for Honda)",
             "allowEmptyValue": false,
@@ -115,7 +130,7 @@
             }
           },
           {
-            "name": "searchBy*",
+            "name": "searchBy",
             "in": "query",
             "description": "Sort result by *\"Distance\"* or *\"Importance/Relevance\"*",
             "allowEmptyValue": false,
@@ -130,11 +145,10 @@
             }
           },
           {
-            "name": "sortBy*",
+            "name": "sortBy",
             "in": "query",
             "description": "Sort the given result by *\"Distance\"* or *\"Importance/Relevance\"*",
             "allowEmptyValue": false,
-            "required": false,
             "schema": {
               "type": "string",
               "default": "dist",
