@@ -21,7 +21,7 @@
     }
   ],
   "paths": {
-    "/{version}/nearby/json": {
+    "/nearby/json": {
       "get": {
         "tags": [
           "Nearby"
@@ -30,22 +30,6 @@
         "description": "Nearby Places API, enables you to add discovery and search of nearby POIs by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category.",
         "operationId": "NearbySearchAPI",
         "parameters": [
-          {
-            "name": "version",
-            "in": "path",
-            "description": "Version of the API",
-            "allowEmptyValue": true,
-            "required": true,
-            "schema": {
-              "type": "string",
-              "default": "",
-              "enum": [
-                "",
-                4.4,
-                4.2
-              ]
-            }
-          },
           {
             "name": "keywords",
             "in": "query",

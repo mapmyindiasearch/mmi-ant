@@ -21,7 +21,7 @@
     }
   ],
   "paths": {
-    "/{version}/places/search/json": {
+    "/places/search/json": {
       "get": {
         "tags": [
           "Autosuggest"
@@ -30,22 +30,6 @@
         "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.",
         "operationId": "Autosuggest",
         "parameters": [
-          {
-            "name": "version",
-            "in": "path",
-            "description": "Version of the API",
-            "required": true,
-            "allowEmptyValue": true,
-            "schema": {
-              "type": "string",
-              "default": "",
-              "enum": [
-                "",
-                4.4,
-                4.2
-              ]
-            }
-          },
           {
             "name": "query",
             "in": "query",
@@ -145,10 +129,6 @@
         "servers": [
           {
             "url": "https://atlas.mapmyindia.com/api",
-            "description": "MapmyIndia Autosuggest API for development"
-          },
-          {
-            "url": "https://atlasweb.mapmyindia.in/api",
             "description": "MapmyIndia Autosuggest API for development"
           }
         ]
