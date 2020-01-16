@@ -1,0 +1,251 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Text Search API",
+    "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request. Powered with Indias most comprehensive and robust mapping functionalities. Now Available for Srilanka, Nepal, Bhutan and Bangladesh.</br></br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
+    "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
+    "contact": {
+      "name": "MapmyIndia API Support",
+      "url": "https://www.mapmyindia.com/api/#f_cont",
+      "email": "apisupport@mapmyindia.com"
+    },
+    "version": "4.4.2.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about MapmyIndia APIs",
+    "url": "https://www.mapmyindia.com/api/advanced-maps/doc/interactive-map-api"
+  },
+  "tags": [
+    {
+      "name": "Text Search"
+    }
+  ],
+  "paths": {
+    "/places/textsearch/json": {
+      "get": {
+        "tags": [
+          "Text Search"
+        ],
+        "summary": "Text Search is an API that returns information about a set of places based on a string.",
+        "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request.",
+        "operationId": "TextSearchAPI",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Some text to get result of places(e.g. India Gate, Kerela, Versace, Gucci, H&M, Adidas, Starbucks, B130 {POI, House Number, keyword, tag})",
+            "required": true,
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "It takes in the country code. LKA, IND, BTN, BGD, NPL for Sri-Lanka, India, Bhutan, Bangladesh, Nepal respectively. Default is India (IND)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "Provides the location around which the search will be performed {string (latitude[double],longitude[double])} (e.g. location=28.454,77.435)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Text_Search_Response"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we are found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily              /hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong"
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api",
+            "description": "MapmyIndia Text Search API for development"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "query": {
+        "title": "query",
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "example": "FODCOF, Shoes, Coffee, Versace"
+          }
+        },
+        "description": "This category search placed like Gucci, H&M, Adidas,                  Starbucks"
+      },
+      "location": {
+        "title": "location",
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "description": "Latitude",
+            "format": "double",
+            "example": 28.63146
+          },
+          "lng": {
+            "type": "number",
+            "description": "Longitude",
+            "format": "double",
+            "example": 77.217423
+          }
+        },
+        "description": "Georgraphic coordinate in decimal latitude/longitude format"
+      },
+      "Text_Search_Response": {
+        "title": "Text Search Response",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "LOCALITY",
+            "description": "Type of location POI or Country or City"
+          },
+          "typeX": {
+            "type": "integer",
+            "example": 5,
+            "description": "For integer use only"
+          },
+          "placeAddress": {
+            "type": "string",
+            "example": "New Delhi, Delhi, 110020",
+            "description": "Address of the location"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.551574,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.269148,
+            "description": "Longitude of the location"
+          },
+          "eLoc": {
+            "type": "string",
+            "example": "YMCZ0J",
+            "description": "Place Id of the location 6-char alphanumeric"
+          },
+          "entryLatitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.551949,
+            "description": "Latitude of the entrance of the location"
+          },
+          "entryLongitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.269124,
+            "description": "Longitude of the entrance of the location"
+          },
+          "placeName": {
+            "type": "string",
+            "example": "Okhla Industrial Estate Phase 3",
+            "description": "Name of the location"
+          },
+          "alternateName": {
+            "type": "string",
+            "example": "Okhla Phase 3,Okhla Industrial Area Phase 3",
+            "description": "Alternate name of the location"
+          },
+          "keywords": {
+            "type": "string",
+            "example": "[]",
+            "description": "Provides an array of matched keywords or codes"
+          },
+          "P": {
+            "type": "number",
+            "format": "long integer",
+            "example": 2536,
+            "description": "For internal use only"
+          },
+          "distance": {
+            "type": "integer",
+            "example": 0,
+            "description": "For internal use only"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": 1,
+            "description": "The order where this result should be placed"
+          },
+          "score": {
+            "type": "number",
+            "format": "double",
+            "example": 8.746293,
+            "description": "For internal use only"
+          },
+          "suggester": {
+            "type": "string",
+            "example": "alternateName",
+            "description": "For internal use only"
+          },
+          "addressTokens": {
+            "type": "string",
+            "example": {},
+            "description": "For internal use only"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "mmi_auth": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://outpost.mapmyindia.com/api/security/oauth/token",
+            "scopes": {
+              "Read": "read authorization for API"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}

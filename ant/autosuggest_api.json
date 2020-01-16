@@ -2,40 +2,38 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Autosuggest API",
-    "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field. <h2>New Feature(s):</h2><p><ul><li>`Filter`</li></ul><p></br> <h2>Filter</h2><p>We are introducing this new parameter to do more specific search using `key:value` pair(s) (e.g. cat_code:ABC123). <ul> <li>Each `key:value`pair is seperated by a seperator`,`</br> *(e.g. filter=cat_code:abc123,mac_plug_type:PN3)*.</br></br> <li>We can use two or more `values` for a `key` by putting either `OR(;)` or `AND($)` operator </br>*(e.g. cat_code:abc123;xyz123,mac_plug_type:PN3&PN2)*.</br></br> <li>By default  `key:value` pairs are treated as `AND($)` case.   </ul> <p>Suppose you want to search all electric vehical charging station of a particular brand*(e.g. \"Honda\" )* and of a particular plug type *(e.g. \"PN3\")* then you can use filter as:</br> </br> *(filter=cat_code:EVSTAN,brand_id:HONDAV,mac_plug_type:PN3)*</br></br> where EVSTAN is category code for EV station, HONDAV is brand_id for Honda and PN3 is plug type. </br></br> <b>Keys</b>: *\"cat_code\", \"brand_id\", \"partner_id\", \"mac_plug_type\".*</br></br> <b>Note:</b> <li>`keys` & `values` are dynamic in nature.</li><br> <li> `,` This is used as an example operator to explain query.</li> </br> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p></br> <p><br> <h2>Security Type:</h2> <p>Atlas OAuth 2.0 based security using AES 256 and SHA-1. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access. <h2>Other Info</h2><ul>  <li>URLs: the urls to use for UAT and Prod are: <code>https://https://atlasweb.mapmyindia.in/api/v3.5/places/textsearch/json? and <code>https://atlas.mapmyindia.com/api/places/textsearch/json?</code></li>   <li>For any issues or questions please submit it to the support : <a href= \"https://www.mapmyindia.com/api/#f_cont\" target=\"_blank\"> API Support</a>  if you have not got access to the support portal contact your service account manager with any questions</li></ul> <h3>Example request:</h3> <code>https://https://atlas.mapmyindia.com/api/places/search/json?access_token=ef665285-0c51-4ab1-8f36-75febf3689d1&query=okhla phase 3&location=28.547008, 77.266256</code></br></br></br></br>",
+    "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.</p> <p>MapmyIndia Autosuggest API Platform provides following advance features: <ul> <li>POD</li> <li>Filter</li> </ul> <h3>POD</h3> <p>It takes in the place type code which helps in restricting the results to certain chosen type. Parameter used is *\"pod\"*. </p> <p>Below mentioned are the codes for the pod:</p> <b>SLC</b>: SubLocality, <b>LC</b>:Locality, <b>CITY</b>: City, <b>VLG</b>:Village, <b>SDIST</b>: SubDistrict, <b>DIST</b>: District, <b>STATE</b>: State, <b>SSLC</b>: SubSubLocatlity.</br></br>  <h3>Filter</h3> <p> *\"filter\"* parameter helps you restrict the result either by mentioning a bounded area or to certain eloc (6 digit code to any poi, locality, city, etc.), below mentioned are both the types:</p> <ul> <li><b>bounds</b>: lat1, lng1; lat2, lng2 (latitude, longitude) {e.g. filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513} <li><b>cop</b>: {eloc} (string) {e.g. filter=cop:YMCZ0J} </ul> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
     "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
-    "version": "V.3.5",
     "contact": {
       "name": "MapmyIndia API Support",
       "url": "https://www.mapmyindia.com/api/#f_cont",
       "email": "apisupport@mapmyindia.com"
-    }
+    },
+    "version": "4.4.2.0"
   },
-  "servers": [
-    {
-      "url": "https://atlas.mapmyindia.com/api/places/search/json?"
-    }
-  ],
+  "externalDocs": {
+    "description": "Find out more about MapmyIndia APIs",
+    "url": "https://www.mapmyindia.com/api/advanced-maps/doc/interactive-map-api"
+  },
   "tags": [
     {
-      "name": "Autosuggest API",
-      "description": "This is used to give suggestions of places"
+      "name": "Autosuggest"
     }
   ],
   "paths": {
-    "/APISearch": {
+    "/places/search/json": {
       "get": {
         "tags": [
-          "Autosuggest API"
+          "Autosuggest"
         ],
-        "summary": "Easy To Integrate Maps & Location APIs & SDKs For Web & Mobile Applications",
-        "description": "Autosuggest is an API that gives suggestions of places based on a typed string.",
-        "operationId": "AutosuggestAPI",
+        "summary": "Autosuggest is an API that gives suggestions of places based on the string you type.",
+        "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.",
+        "operationId": "Autosuggest",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Sme text to give suggestions of places",
+            "description": "Some text to get suggestions of places(e.g. Shoes, Coffee, Versace, Gucci, H&M, Adidas, Starbucks, B130 {POI, House Number, keyword, tag})",
             "required": true,
             "allowEmptyValue": false,
             "schema": {
@@ -54,7 +52,7 @@
           {
             "name": "location",
             "in": "query",
-            "description": "Provides the location around which the search will be performed",
+            "description": "Provides the location around which the search will be performed {string (latitude[double],longitude[double])} (e.g. location=28.454,77.435)",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -66,13 +64,22 @@
             "description": "takes the zoom level of the current scope of the map (min: 4, max: 18).",
             "allowEmptyValue": false,
             "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "pod*",
+            "in": "query",
+            "description": "It takes in the place type code which helps in restricting the results to certain chosen type.(e.g. SLC: SubLocality, LC:Locality, CITY: City, VLG:Village, SDIST: SubDistrict, DIST: District, STATE: State, SSLC: SubSubLocatlity.)",
+            "allowEmptyValue": false,
+            "schema": {
               "type": "string"
             }
           },
           {
-            "name": "pod",
+            "name": "filter*",
             "in": "query",
-            "description": "it takes in the place type code which helps in restricting the results to certain chosen type.",
+            "description": " This parameter helps you restrict the result either by mentioning a bounded area or to certain eloc (6 digit code to any poi, locality, city, etc.) <li> filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513<li>filter=cop:YMCZ0J",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -81,16 +88,7 @@
           {
             "name": "tokenizeAddress",
             "in": "query",
-            "description": " it takes in the place type code which helps in restricting the results to certain chosen type(e.g. sslc, lc, district, state, city, village, pincode)",
-            "allowEmptyValue": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "description": "*key:value* pair to specified our seach.(e.g. For all honda EV stations: *filter=cat_code:EVSTAN,brand_id:HONDAV*, where EVSTAN is category code and HONDAV is brand_id for Honda)",
+            "description": "Valueless parameter which provides the different address attributes in a structured object.",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -130,8 +128,12 @@
         "deprecated": false,
         "servers": [
           {
-            "url": "https://atlas.mapmyindia.com/api/places/textsearch/json?",
-            "description": "MapmyIndia Text Search API for development"
+            "url": "https://atlas.mapmyindia.com/api",
+            "description": "MapmyIndia Autosuggest API for development"
+          },
+          {
+            "url": "https://atlasweb.mapmyindia.in/api",
+            "description": "MapmyIndia Autosuggest API for development"
           }
         ]
       }
@@ -139,39 +141,19 @@
   },
   "components": {
     "schemas": {
-      "Filter": {
-        "title": "Filter",
+      "query": {
+        "title": "query",
         "type": "object",
         "properties": {
-          "cat_code": {
+          "query": {
             "type": "string",
-            "description": "Category Code",
-            "format": "string",
-            "example": "MBLDNG"
-          },
-          "brand_id": {
-            "type": "string",
-            "description": "Brand ID",
-            "format": "string",
-            "example": "HONDAV"
-          },
-          "mac_plug_type": {
-            "type": "string",
-            "description": "MAC plug type",
-            "format": "string",
-            "example": "PN3"
-          },
-          "partner_id": {
-            "type": "string",
-            "description": "Partner ID",
-            "format": "string",
-            "example": "ABC123"
+            "example": "FODCOF, Shoes, Coffee, Versace"
           }
         },
-        "description": "Sample of fields for specified search."
+        "description": "This category search placed like Gucci, H&M, Adidas,                  Starbucks"
       },
-      "Coordinate": {
-        "title": "Coordinate",
+      "location": {
+        "title": "location",
         "type": "object",
         "properties": {
           "lat": {
@@ -189,33 +171,37 @@
         },
         "description": "Georgraphic coordinate in decimal latitude/longitude format"
       },
-      "query": {
-        "title": "query",
-        "required": [
-          "query"
-        ],
+      "filter": {
+        "title": "filter",
         "type": "object",
         "properties": {
-          "query": {
+          "bounds": {
             "type": "string",
-            "example": "FODCOF, Shoes, Coffee, Versace"
+            "description": "Location Bound Area",
+            "format": "double,double;double,double",
+            "example": "(bounds:28.598882, 77.212407; 28.467375, 77.353513)"
+          },
+          "cop": {
+            "type": "string",
+            "description": "eLoc(6 digit code of any poi, locality, city etc.)",
+            "format": "string",
+            "example": "MMI000"
+          }
+        }
+      },
+      "pod": {
+        "title": "pod",
+        "type": "object",
+        "properties": {
+          "pod": {
+            "type": "string",
+            "example": "SLC, VLG, DIST"
           }
         },
-        "description": "This category search placed like Gucci, H&M, Adidas,                  Starbucks"
+        "description": "It takes in the place type code which helps in restricting the results to certain chosen type.(e.g. SLC: SubLocality, LC:Locality, CITY: City etc.)"
       },
       "Response": {
         "title": "Response",
-        "required": [
-          "eLoc",
-          "placeName",
-          "placeAddress",
-          "type",
-          "latitude",
-          "longitude",
-          "orderIndex",
-          "keywords",
-          "addressTokens"
-        ],
         "type": "object",
         "properties": {
           "eLoc": {
@@ -269,21 +255,6 @@
       },
       "addressToken(Response)": {
         "title": "addressToken(Response)",
-        "required": [
-          "houseNumber",
-          "houseName",
-          "poi",
-          "street",
-          "subSubLocality",
-          "subLocality",
-          "locality",
-          "village",
-          "subDistrict",
-          "district",
-          "city",
-          "state",
-          "pincode"
-        ],
         "type": "object",
         "properties": {
           "houseNumber": {
@@ -365,6 +336,11 @@
             }
           }
         }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
       }
     }
   }
