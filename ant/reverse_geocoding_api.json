@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Reverse Geocoding API",
-    "description": "Reverse Geocoding is a process to give the closest matching address to a provided geographical coordinates (latitude/longitude). MapmyIndia reverse geocoding API provides real addresses along with nearest popular landmark for any such geo-positions on the map. <p> MapmyIndia Reverse Geocoding API Platform provieds following advance features:</p><ul><li>lang (For Indic Languages)</li></ul> <p>Added \"lang\" parameter for language-specific search. This parameter accepts the \"hi\" (ISO 639-1 Language Code for Hindi) as a value.</p> <b> Note: </b> Currently this is enable for \"Hindi\" Language only <h2> Skimmed Reverse Geocode:</h2> It is handled through Out Post in Atlas - where it manages different <b>\"Access Tokens\"</b> according to the permission to Key of the user. <b>\"Access Tokens\"</b> can be summed up to give access to different level of information. Refer the table below: <ul><li>Default - village, district, subDistrict, city, state, lat, lng, area</li><li>Access Token = 1 - pincode</li><li>Access Token = 2 - slc_nme, subl_nme, loc_nme</li><li>Access Token = 4 - street, street_dist</li><li>Access Token = 8 - houseNumber, houseName, poi, poi_dist</li><li>Access Token = 15 - full access</li></ul> <h2>Security Type:</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-reverse-geocoding-rest-api-example\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access. </p></br><h2>Other Info(s)</h2><ul> <li>URLs: the urls to use for UAT and Prod are: <code>https://am.mapmyindia.in/advancedmaps/v1/7eurlyem8k785e12d45iqhmlcsstf1dy/rev_geocode?</code> and <code>http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/rev_geocode?</code></li>   <li>For any issues or questions please submit it to the support : <a href= \"https://www.mapmyindia.com/api/#f_cont\" target=\"_blank\"> API Support</a> if you do not have access to the support portal contact your service account manager with any questions.</li></ul></br> <h3>Example request:</h3> <code>http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/rev_geocode?lat=26.5645&lng=85.9914</code></br></br></br></br>",
+    "description": "Reverse Geocoding is a process to give the closest matching address to a provided geographical coordinates (latitude/longitude). MapmyIndia reverse geocoding API provides real addresses along with nearest popular landmark for any such geo-positions on the map. <p> MapmyIndia Reverse Geocoding API Platform provides following advance features:</p><ul><li>lang (For Indic Languages)</li></ul></p> <p>Added \"lang\" parameter for language-specific search. This parameter accepts the \"hi\" (ISO 639-1 Language Code for Hindi) as a value.</p> <p><b> Note: </b> Currently this is enable for \"Hindi\" Language only</p> <h2> Skimmed Reverse Geocode:</h2> <p>It is handled through Out Post in Atlas - where it manages different <b>\"Access Tokens\"</b> according to the permission to key of the user. <b>\"Access Tokens\"</b> can be summed up to give access to different level of information. Refer the table below:</p> <ul><li>Default - village, district, subDistrict, city, state, lat, lng, area</li><li>Access Token = 1 - pincode</li><li>Access Token = 2 - sslc_nme, subl_nme, loc_nme</li><li>Access Token = 4 - street, street_dist</li><li>Access Token = 8 - houseNumber, houseName, poi, poi_dist</li><li>Access Token = 15 - full access</li></ul> <h2>Security Type:</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br></br></p> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-reverse-geocoding-rest-api-example\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access. </br><h2>Other Info(s)</h2><p><ul> <li>URLs: the urls to use for UAT and Prod are: <code>https://am.mapmyindia.in/advancedmaps/v1/<licence_key>/rev_geocode?</code> and <code>http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/rev_geocode?</code></li>   <li>For any issues or questions please submit it to the support : <a href= \"https://www.mapmyindia.com/api/#f_cont\" target=\"_blank\"> API Support</a> if you do not have access to the support portal contact your service account manager with any questions.</li></ul></br> <h3>Example request:</h3> <code>http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/rev_geocode?lat=26.5645&lng=85.9914</code></br></br></br></br></p>",
     "termsOfService": "https://www.mapmyindia.com/http://apis.mapmyindia.com/advancedmaps/v1/<licence_key>/rev_geocode?api/terms-&-conditions",
     "version": "V1",
     "contact": {
@@ -111,7 +111,7 @@
         "tags": [
           "Reverse Geocoding API"
         ],
-        "summary": "Search for closest matching address will give in Hindi",
+        "summary": "Search for closest matching address will give result in Hindi",
         "description": "MapmyIndia reverse geocoding API provides real addresses along with nearest popular landmark for any such geo-positions on the map",
         "operationId": "ReverseGeocodingHindiAPI",
         "parameters": [
@@ -228,7 +228,7 @@
             "example": 77.217423
           }
         },
-        "description": "Georgraphic coordinate in decimal latitude/longitude format"
+        "description": "Geographic coordinate in decimal latitude/longitude format"
       },
       "Response": {
         "title": "Response",
@@ -263,7 +263,7 @@
           "poi",
           "poi_dist",
           "street",
-          "street dist",
+          "street_dist",
           "subSubLocality",
           "subLocality",
           "locality",
@@ -274,7 +274,7 @@
           "state",
           "pincode",
           "lat",
-          "long",
+          "lng",
           "formatted_address"
         ],
         "type": "object",
@@ -366,7 +366,7 @@
             "example": 85.9914,
             "description": "The longitude of the location"
           },
-          "formatted_Address": {
+          "formatted_address": {
             "type": "string",
             "example": "Unnamed Road, Basopatti, Basopatti, Madhubani District, Bihar. 936 m from Primary Health Centre Basopatti pin-847225 (India)",
             "description": "The complete human readable address string that is usually the complete postal address of the result"
@@ -420,7 +420,7 @@
           "poi",
           "poi_dist",
           "street",
-          "street dist",
+          "street_dist",
           "subSubLocality",
           "subLocality",
           "locality",
@@ -431,7 +431,7 @@
           "state",
           "pincode",
           "lat",
-          "long",
+          "lng",
           "formatted_address"
         ],
         "type": "object",
@@ -523,7 +523,7 @@
             "example": 85.9914,
             "description": "The longitude of the location"
           },
-          "formatted_Address": {
+          "formatted_address": {
             "type": "string",
             "example": "अननेम्ड रोड़, बासोपट्टी, बासोपट्टी, मधुबनी डिस्ट्रिक्ट, बिहार. प्राइमरी हेल्थ सेंटर बासोपट्टी से 936 मी. पिन-847225 (भारत)",
             "description": "The complete human readable address string that is usually the complete postal address of the result"
