@@ -2,14 +2,14 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Text Search API",
-    "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request. Powered with Indias most comprehensive and robust mapping functionalities. Now Available for Srilanka, Nepal, Bhutan and Bangladesh.</br></br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
+    "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request. Powered with Indias most comprehensive and robust mapping functionalities. Now Available for Srilanka, Nepal, Bhutan and Bangladesh. <p>MapmyIndia Text Search API Platform provides following advance feature:</p> <ul> <li>Filter</li> </ul> <h3>Filter</h3><p>*\"filter\"* parameter helps you restrict the result by mentioning Pincode.</p><p> <b>pin</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}</p><h4>Example URL:</h4><p>*https://atlasweb.mapmyindia.in/api/v4.4/places/search/json?query=hotel&location=28.5507160000001,77.2689280000001&filter=pin:110020*</p> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
     "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
     "contact": {
       "name": "MapmyIndia API Support",
       "url": "https://www.mapmyindia.com/api/#f_cont",
       "email": "apisupport@mapmyindia.com"
     },
-    "version": "4.4.2.0"
+    "version": "4.4.2.1"
   },
   "externalDocs": {
     "description": "Find out more about MapmyIndia APIs",
@@ -53,6 +53,15 @@
             "name": "location",
             "in": "query",
             "description": "Provides the location around which the search will be performed {string (latitude[double],longitude[double])} (e.g. location=28.454,77.435)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "This parameter helps you restrict the result by mentioning Pincode/Postal Code.<p>(e.g. filter=pin:110055)",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -130,6 +139,19 @@
           }
         },
         "description": "Georgraphic coordinate in decimal latitude/longitude format"
+      },
+      "filter": {
+        "title": "filter",
+        "type": "object",
+        "properties": {
+          "pin": {
+            "type": "number",
+            "description": "Pincode or Postal Code",
+            "format": "integer",
+            "example": 110055
+          }
+        },
+        "description": "It helps you restrict the result by mentioning Pincode."
       },
       "Text_Search_Response": {
         "title": "Text Search Response",

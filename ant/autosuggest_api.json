@@ -2,14 +2,14 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Autosuggest API",
-    "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.</p> <p>MapmyIndia Autosuggest API Platform provides following advance features: <ul> <li>POD</li> <li>Filter</li> </ul> <h3>POD</h3> <p>It takes in the place type code which helps in restricting the results to certain chosen type. Parameter used is *\"pod\"*. </p> <p>Below mentioned are the codes for the pod:</p> <b>SLC</b>: SubLocality, <b>LC</b>:Locality, <b>CITY</b>: City, <b>VLG</b>:Village, <b>SDIST</b>: SubDistrict, <b>DIST</b>: District, <b>STATE</b>: State, <b>SSLC</b>: SubSubLocatlity.</br></br>  <h3>Filter</h3> <p> *\"filter\"* parameter helps you restrict the result either by mentioning a bounded area or to certain eloc (6 digit code to any poi, locality, city, etc.), below mentioned are both the types:</p> <ul> <li><b>bounds</b>: lat1, lng1; lat2, lng2 (latitude, longitude) {e.g. filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513} <li><b>cop</b>: {eloc} (string) {e.g. filter=cop:YMCZ0J} </ul> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
+    "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.</p> <p>MapmyIndia Autosuggest API Platform provides following advance features: <ul> <li>POD</li> <li>Filter</li> </ul><p></p> <h3>POD</h3> <p>It takes in the place type code which helps in restricting the results to certain chosen type. Parameter used is *\"pod\"*. </p> <p>Below mentioned are the codes for the pod:</p> <b>SLC</b>: SubLocality, <b>LC</b>:Locality, <b>CITY</b>: City, <b>VLG</b>:Village, <b>SDIST</b>: SubDistrict, <b>DIST</b>: District, <b>STATE</b>: State, <b>SSLC</b>: SubSubLocatlity.</br></br>  <h3>Filter</h3> <p> *\"filter\"* parameter helps you restrict the result by mentioning a bounded area, certain eloc (6 digit code to any poi, locality, city, etc.) or Pincode, below mentioned are the types:</p> <ul><li><b>pin*</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}  <li><b>bounds</b>: lat1, lng1; lat2, lng2 (latitude, longitude) {e.g. filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513} <li><b>cop</b>: {eloc} (string) {e.g. filter=cop:YMCZ0J} </ul> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
     "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
     "contact": {
       "name": "MapmyIndia API Support",
       "url": "https://www.mapmyindia.com/api/#f_cont",
       "email": "apisupport@mapmyindia.com"
     },
-    "version": "4.4.2.0"
+    "version": "4.4.2.1"
   },
   "externalDocs": {
     "description": "Find out more about MapmyIndia APIs",
@@ -79,7 +79,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": " This parameter helps you restrict the result either by mentioning a bounded area or to certain eloc (6 digit code to any poi, locality, city, etc.) <li> filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513<li>filter=cop:YMCZ0J",
+            "description": " This parameter helps you restrict the result by mentioning a bounded area, certain eloc (6 digit code to any poi, locality, city, etc.) or Pincode.<li>filter=pin:110055 <li> filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513<li>filter=cop:YMCZ0J",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -171,6 +171,12 @@
         "title": "filter",
         "type": "object",
         "properties": {
+          "pin": {
+            "type": "number",
+            "description": "Pincode or Postal code of an area.",
+            "format": "integer",
+            "example": 110055
+          },
           "bounds": {
             "type": "string",
             "description": "Location Bound Area",
