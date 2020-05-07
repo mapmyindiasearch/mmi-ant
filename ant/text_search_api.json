@@ -1,8 +1,8 @@
-﻿{
+{
   "openapi": "3.0.1",
   "info": {
     "title": "Text Search API",
-    "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request. Powered with Indias most comprehensive and robust mapping functionalities. Now Available for Srilanka, Nepal, Bhutan and Bangladesh. <p>MapmyIndia Text Search API Platform provides following advance feature:</p> <ul> <li>Filter</li> </ul> <h3>Filter</h3><p>*\"filter\"* parameter helps you restrict the result by mentioning Pincode.</p><p> <b>pin</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}</p><h4>Example URL:</h4><p>*https://atlasweb.mapmyindia.in/api/v4.4/places/search/json?query=hotel&location=28.5507160000001,77.2689280000001&filter=pin:110020*</p> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
+    "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request. Powered with Indias most comprehensive and robust mapping functionalities. Now Available for Srilanka, Nepal, Bhutan and Bangladesh. <p>MapmyIndia Text Search API Platform provides following advance feature:</p> <ul> <li>Filter</li> </ul> <h3>Filter</h3><p>*\"filter\"* parameter helps you restrict the result by mentioning Pincode.</p><p> <b>pin</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}</p><h4>Example URL:</h4><p>*https://atlas.mapmyindia.com/api/places/textsearch/json?query=hotel&location=28.5507160000001,77.2689280000001&filter=pin:110020*</p> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
     "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
     "contact": {
       "name": "MapmyIndia API Support",
@@ -62,6 +62,33 @@
             "name": "filter",
             "in": "query",
             "description": "This parameter helps you restrict the result by mentioning Pincode/Postal Code.<p>(e.g. filter=pin:110055)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "itemCount [Restricted]",
+            "in": "query",
+            "description": "provides a configurable parameter to set number of records per page (default: 10, min:1, max:20)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "richData [Restricted]",
+            "in": "query",
+            "description": "provides rich information like reviews, star count on demand e.g. {&richData}",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "explain [Restricted]",
+            "in": "query",
+            "description": "provides explanation as to why did you receive the result that you’ve received.",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -159,67 +186,67 @@
         "properties": {
           "type": {
             "type": "string",
-            "example": "LOCALITY",
+            "example": "POI",
             "description": "Type of location POI or Country or City"
           },
           "typeX": {
             "type": "integer",
-            "example": 5,
+            "example": 7,
             "description": "For integer use only"
           },
           "placeAddress": {
             "type": "string",
-            "example": "New Delhi, Delhi, 110020",
+            "example": "Block F, Okhla Industrial Estate Phase 1, New Delhi, Delhi, 110020",
             "description": "Address of the location"
           },
           "latitude": {
             "type": "number",
             "format": "double",
-            "example": 28.551574,
+            "example": 28.515356,
             "description": "Latitude of the location"
           },
           "longitude": {
             "type": "number",
             "format": "double",
-            "example": 77.269148,
+            "example": 77.281273,
             "description": "Longitude of the location"
           },
           "eLoc": {
             "type": "string",
-            "example": "YMCZ0J",
+            "example": "F2D814",
             "description": "Place Id of the location 6-char alphanumeric"
           },
           "entryLatitude": {
             "type": "number",
             "format": "double",
-            "example": 28.551949,
+            "example": 28.515296,
             "description": "Latitude of the entrance of the location"
           },
           "entryLongitude": {
             "type": "number",
             "format": "double",
-            "example": 77.269124,
+            "example": 77.281113,
             "description": "Longitude of the entrance of the location"
           },
           "placeName": {
             "type": "string",
-            "example": "Okhla Industrial Estate Phase 3",
+            "example": "Ronnies Hotel",
             "description": "Name of the location"
           },
           "alternateName": {
             "type": "string",
-            "example": "Okhla Phase 3,Okhla Industrial Area Phase 3",
+            "example": "",
             "description": "Alternate name of the location"
           },
           "keywords": {
             "type": "string",
-            "example": "[]",
+            "example": "[HOTALL]",
             "description": "Provides an array of matched keywords or codes"
           },
           "P": {
             "type": "number",
             "format": "long integer",
-            "example": 2536,
+            "example": 4487,
             "description": "For internal use only"
           },
           "distance": {
@@ -235,18 +262,22 @@
           "score": {
             "type": "number",
             "format": "double",
-            "example": 8.746293,
+            "example": 0,
             "description": "For internal use only"
           },
           "suggester": {
             "type": "string",
-            "example": "alternateName",
+            "example": null,
             "description": "For internal use only"
           },
           "addressTokens": {
             "type": "string",
             "example": {},
             "description": "For internal use only"
+          },
+          "richinfo": {
+            "type": "string",
+            "example": {}
           }
         }
       }
