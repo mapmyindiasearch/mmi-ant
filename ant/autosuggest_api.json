@@ -68,7 +68,7 @@
             }
           },
           {
-            "name": "pod (Restricted)",
+            "name": "pod [Restricted]",
             "in": "query",
             "description": "It takes in the place type code which helps in restricting the results to certain chosen type.(e.g. SLC: SubLocality, LC:Locality, CITY: City, VLG:Village, SDIST: SubDistrict, DIST: District, STATE: State, SSLC: SubSubLocatlity.)",
             "allowEmptyValue": false,
@@ -95,7 +95,7 @@
             }
           },
           {
-            "name": "itemCount (Restricted)",
+            "name": "itemCount [Restricted]",
             "in": "query",
             "description": "provides a configurable parameter to set number of results (default: 10, min: 1, max: 20)",
             "allowEmptyValue": false,
@@ -104,7 +104,7 @@
             }
           },
           {
-            "name": "bridge (Restricted)",
+            "name": "bridge [Restricted]",
             "in": "query",
             "description": "provides a parameter to configure search suggestions in the API response. It’ll allow the API to provide link to a suggested nearby API search. This parameter is private.",
             "allowEmptyValue": false,
@@ -113,7 +113,7 @@
             }
           },
           {
-            "name": "explain (Restricted)",
+            "name": "explain [Restricted]",
             "in": "query",
             "description": "provides a parameter to configure search suggestions in the API response. It’ll allow the API to provide link to a suggested nearby API search. This parameter is private",
             "allowEmptyValue": false,
