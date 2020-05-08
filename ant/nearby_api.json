@@ -62,7 +62,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "provides configured sorting operations for the client on cloud. Below are the available sorts:<li> dist:asc & dist:desc - will sort data in order of distance from the passed location (default).<li> name:asc & name:desc - will sort the data on alphabetically bases",
+            "description": "provides configured sorting operations for the client on cloud. Below are the available sorts:<li> dist:asc & dist:desc - will sort data in order of distance from the passed location (default).",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
