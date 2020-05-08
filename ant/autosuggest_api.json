@@ -68,7 +68,7 @@
             }
           },
           {
-            "name": "pod [Restricted]",
+            "name": "pod",
             "in": "query",
             "description": "It takes in the place type code which helps in restricting the results to certain chosen type.(e.g. SLC: SubLocality, LC:Locality, CITY: City, VLG:Village, SDIST: SubDistrict, DIST: District, STATE: State, SSLC: SubSubLocatlity.)",
             "allowEmptyValue": false,
