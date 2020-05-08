@@ -69,7 +69,7 @@
             }
           },
           {
-            "name": "radius [Restricted]",
+            "name": "radius",
             "in": "query",
             "description": "<li>provides the range of distance to search over (default 1000, min 500, max 10000).<li> Also provides customized radius for custom dataset like HONDA(Min. 249)",
             "allowEmptyValue": false,
@@ -164,15 +164,6 @@
             "name": "explain [Restricted]",
             "in": "query",
             "description": "provides explanation as to why did you receive the result that you’ve received.",
-            "allowEmptyValue": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Bounds(x1,y1;x2,y2) [Restricted]",
-            "in": "query",
-            "description": "Allows the developer to send in map bounds to provide a nearby search of the geobounds. where x1,y1 are the lat lng of",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
