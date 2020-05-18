@@ -1,0 +1,257 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Geocoding API",
+    "description": "Our Geocoding API converts real addresses into these geographic coordinates (latitude/longitude) to be placed on a map, be it for any street, area, postal code, POI or a house number etc. <p>MapmyIndia Geocoding API Platform provides following advance features:</p>  <ul> <li>bias <li>podFilter <li>bound </ul> <h3>bias</h3> <p>This parameter can be used to set Urban or Rural bias. A positive value sets the Urban bias and a negative value sets Rural bias. Allowed values are:<ul><li>0 : Default: (No bias)<li>-1 : Rural<li>1 : Urban</ul><p> <h3>podFilter</h3> <p>This parameter can be used to set admin level restriction. The result will be either the given admin level or equivalent admin or higher in the hierarchy. No lower admin will be considered for geocoding. Allowed values are:<ul><li>hno : house number <li>hna : house name <li>poi : point of interest <li>street : street <li>sslc : sub sub locality <li>village : village <li>slc : sub locality <li>sdist : sub district <li>loc : locality <li>city : city <li>dist : district <li>pincode :pincode/postalcode <li>state : state</ul><h3>bound</h3> <p> This parameter can be used to set admin boundary, which means geocoding will be done within the given admin. The allowed admin bounds are Sub-District, District, City, State and Pincode. The parameter accepts the admin eLoc as value.</p></br><p><b>Note:</b> Please note that podFilter & bound parameters are mutually exclusive. They cannot be used together in an API call. </br></br><p><b>Example URL:</b> https://atlas.mapmyindia.com/api/places/geocode?address=mapmyindia 237 okhla phase 3 </br></br><h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-atlas-geocoding-rest-api-example\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br> ",
+    "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
+    "contact": {
+      "name": "MapmyIndia API Support",
+      "url": "https://www.mapmyindia.com/api/#f_cont",
+      "email": "apisupport@mapmyindia.com"
+    },
+    "version": "4.4.2.1"
+  },
+  "externalDocs": {
+    "description": "Find out more about MapmyIndia APIs",
+    "url": "https://www.mapmyindia.com/api/advanced-maps/doc/interactive-map-api"
+  },
+  "tags": [
+    {
+      "name": "Geocoding"
+    }
+  ],
+  "paths": {
+    "/geocoding": {
+      "get": {
+        "tags": [
+          "Geocoding"
+        ],
+        "summary": "Converts real addresses into these geographic coordinates",
+        "description": "Geocoding API converts real addresses into these geographic coordinates (latitude/longitude) to be placed on a map, be it for any street, area, postal code, POI or a house number etc.",
+        "operationId": "GeocodingSearchAPI",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "description": "address to be geocoded e.g. 237 Okhla industrial estate phase 3 new delhi, delhi 110020.",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "itemCount",
+            "in": "query",
+            "description": "parameter can be set to get maximum number of result items from the API (default- 1).",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "bias",
+            "in": "query",
+            "description": "This parameter can be used to set Urban or Rural bias. A positive value sets the Urban bias and a negative value sets Rural bias.(e.g. -1,0,1)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "podFilter",
+            "in": "query",
+            "description": "This parameter can be used to set admin level restriction. The result will be either the given admin level or equivalent admin or higher in the hierarchy. No lower admin will be considered for geocoding.(e.g.city, locality, poi etc. )",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bounds",
+            "in": "query",
+            "description": "This parameter can be used to set admin boundary, which means geocoding will be done within the given admin. The allowed admin bounds are Sub-District, District, City, State and Pincode. The parameter accepts the admin eLoc as value.",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we’re found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied."
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily/hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong."
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api/places/",
+            "description": "MapmyIndia Generic Geocoding search API"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "keywords": {
+        "title": "address",
+        "type": "object",
+        "properties": {
+          "keywords": {
+            "type": "string",
+            "example": "237 mapmyindia okhla"
+          }
+        },
+        "description": "Address of a place"
+      },
+      "Response": {
+        "title": "Response",
+        "type": "object",
+        "properties": {
+          "houseNumber": {
+            "type": "string",
+            "example": 237,
+            "description": "House number"
+          },
+          "houseName": {
+            "type": "string",
+            "example": "mapmyindia",
+            "description": "House name"
+          },
+          "poi": {
+            "type": "string",
+            "example": "mapmyindia",
+            "description": "point of interest name"
+          },
+          "street": {
+            "type": "string",
+            "example": "",
+            "description": "road/street name"
+          },
+          "subSubLocality": {
+            "type": "string",
+            "example": "",
+            "description": "sub sub locality name"
+          },
+          "subLocality": {
+            "type": "string",
+            "example": "",
+            "description": "sub locality name"
+          },
+          "locality": {
+            "type": "string",
+            "example": "Okhla Industrial Estate Phase 3",
+            "description": "locality name"
+          },
+          "village": {
+            "type": "string",
+            "example": "madhubani",
+            "description": "village name"
+          },
+          "subDistrict": {
+            "type": "string",
+            "example": "Kalkaji",
+            "description": "type of place"
+          },
+          "district": {
+            "type": "string",
+            "example": "South East Delhi District",
+            "description": "district name"
+          },
+          "city": {
+            "type": "string",
+            "example": "new delhi",
+            "description": "city name"
+          },
+          "state": {
+            "type": "string",
+            "example": "delhi",
+            "description": "state name"
+          },
+          "pincode": {
+            "type": "integer",
+            "example": 110020,
+            "description": "postal code of the place"
+          },
+          "formatedAddress": {
+            "type": "string",
+            "example": "237, Okhla Industrial Estate Phase 3, Kalkaji, South East Delhi District, New Delhi, Delhi, 110020",
+            "description": "Full Address with comma seperation"
+          },
+          "eloc": {
+            "type": "string",
+            "example": "TIYF9Q",
+            "description": "Place Id of the location 6-char alphanumeric"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "Latitude",
+            "format": "double",
+            "example": 28.550667
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude",
+            "format": "double",
+            "example": 77.268952
+          },
+          "geocodeLevel": {
+            "type": "string",
+            "example": "housenumber",
+            "description": "the best matched address component."
+          },
+          "confidenceScore": {
+            "type": "number",
+            "format": "float",
+            "example": 0.4,
+            "description": "the confidence for current of geocodelevel."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "mmi_auth": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://outpost.mapmyindia.com/api/security/oauth/token",
+            "scopes": {
+              "Read": "read authorization for API"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
