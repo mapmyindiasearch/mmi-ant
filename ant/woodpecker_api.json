@@ -1,0 +1,331 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Woodpecker API",
+    "description": "Also known as Address Standardization API. It is a process to convert the non formatted address into the user readable format by omitting unnecessary information in the address. MapmyIndia address standardization API provides real addresses along with admin and other information</p> <p>MapmyIndia Woodpecker API Platform provides following advance feature: <ul> <li>Bias</li></ul><p></p> <h3>Bias</h3> <p> This parameter value can be set to get the bias result towards the urban or rural side. (Default is 1.5 : urban). Where 1 is neutral and < 1 is rural biased and > 1 is Urban biased.  <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/woodpecker_demo/\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
+    "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
+    "contact": {
+      "name": "MapmyIndia API Support",
+      "url": "https://www.mapmyindia.com/api/#f_cont",
+      "email": "apisupport@mapmyindia.com"
+    },
+    "version": "4.4.2.1"
+  },
+  "externalDocs": {
+    "description": "Find out more about MapmyIndia APIs",
+    "url": "https://www.mapmyindia.com/api/advanced-maps/doc/interactive-map-api"
+  },
+  "tags": [
+    {
+      "name": "Woodpecker"
+    }
+  ],
+  "paths": {
+    "/woodpecker": {
+      "get": {
+        "tags": [
+          "Woodpecker"
+        ],
+        "summary": "Convert the non formatted address into the user readable format.",
+        "description": "It is a process to convert the non formatted address into the user readable format by omitting unnecessary information in the address. MapmyIndia address standardization API provides real addresses along with admin and other information.",
+        "operationId": "Woodpecker",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Address of a place (e.g. 237 Okhla industrial estate phase 3 new Delhi, Delhi 110020)",
+            "required": true,
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bias",
+            "in": "query",
+            "description": "parameter value can be set to get the bias result towards the urban or rural side. (Default is 1.5 : urban). Where 1 is neutral and < 1 is rural biased and > 1 is Urban biased.",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we are found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily              /hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong"
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api",
+            "description": "MapmyIndia Autosuggest API for development"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "address": {
+        "title": "address",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "example": "237 Okhla industrial estate phase 3 new Delhi, Delhi 110020"
+          }
+        },
+        "description": "Address of a place."
+      },
+      "bias": {
+        "title": "bias",
+        "type": "object",
+        "properties": {
+          "bias": {
+            "type": "number",
+            "format": "float",
+            "example": "-1.5, 1.5, 2.1"
+          }
+        },
+        "description": "parameter value can be set to get the bias result towards the urban or rural side. (Default is 1.5 : urban). Where 1 is neutral and < 1 is rural biased and > 1 is Urban biased."
+      },
+      "Response": {
+        "title": "Response",
+        "type": "object",
+        "properties": {
+          "inputAddress": {
+            "type": "string",
+            "example": "1st floor, 3110, sangatrashan, new delhi, 110055",
+            "description": "address given by the user."
+          },
+          "remainingAddress": {
+            "type": "string",
+            "example": "paharganj",
+            "description": "Part of input address left after tagging the admin and other information."
+          },
+          "referentialInformation": {
+            "type": "object",
+            "properties": {
+              "pincodes": {
+                "type": "string",
+                "example": 110055,
+                "description": "Pincode tagged from input address if found any."
+              },
+              "floors": {
+                "type": "string",
+                "example": 1,
+                "description": "Floor info tagged from input address if found any."
+              },
+              "roads": {
+                "type": "string",
+                "example": "Sangatrashan Marg",
+                "description": "Road(s) tagged from the input address if found any."
+              },
+              "postOffices": {
+                "type": "string",
+                "example": "Paharganj",
+                "description": ":Post offices tagged from the input address if found any."
+              },
+              "careOfs": {
+                "type": "string",
+                "example": null,
+                "description": ":Care of (C/O) tagged from the input address if found any"
+              },
+              "landmarks": {
+                "type": "string",
+                "example": "Banke Bihari Mandir",
+                "description": "Landmark tagged from the input address if found any."
+              },
+              "houseNumbers": {
+                "type": "string",
+                "example": 3110,
+                "description": "House number information tagged from the input address if found any."
+              }
+            }
+          },
+          "addressInformation": {
+            "type": "object",
+            "properties": {
+              "adminDetails": {
+                "type": "object",
+                "description": "Contains information for the tagged admins.",
+                "properties": {
+                  "adminType": {
+                    "type": "object",
+                    "description": "name & aliases of the state of the input address and how it was deduced from provided info.",
+                    "properties": {
+                      "state": {
+                        "type": "object",
+                        "description": "state of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": "Delhi"
+                          }
+                        }
+                      },
+                      "city": {
+                        "type": "object",
+                        "description": "city of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": "New Delhi"
+                          }
+                        }
+                      },
+                      "district": {
+                        "type": "object",
+                        "description": "district of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": "Central Delhi"
+                          }
+                        }
+                      },
+                      "subdistrict": {
+                        "type": "object",
+                        "description": "subdistrict of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": null
+                          }
+                        }
+                      },
+                      "village": {
+                        "type": "object",
+                        "description": "village of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": null
+                          }
+                        }
+                      },
+                      "locality": {
+                        "type": "object",
+                        "description": "Locality of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": "Paharganj"
+                          }
+                        }
+                      },
+                      "subLocality": {
+                        "type": "object",
+                        "description": "subLocality of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": "Sangatrashan Chowk"
+                          }
+                        }
+                      },
+                      "subsubLocality": {
+                        "type": "object",
+                        "description": "subSubLocality of the location",
+                        "properties": {
+                          "originalName": {
+                            "type": "string",
+                            "example": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "adminPattern": {
+                "type": "array",
+                "description": "list of standardized Admin Type tags extracted from the input address.",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "example": "state"
+                    },
+                    {
+                      "type": "string",
+                      "example": "city"
+                    },
+                    {
+                      "type": "string",
+                      "example": "district"
+                    },
+                    {
+                      "type": "string",
+                      "example": "subistrict"
+                    },
+                    {
+                      "type": "string",
+                      "example": "village"
+                    },
+                    {
+                      "type": "string",
+                      "example": "locality"
+                    },
+                    {
+                      "type": "string",
+                      "example": "subLocality"
+                    },
+                    {
+                      "type": "string",
+                      "example": "subSubLocality"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "mmi_auth": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://outpost.mapmyindia.com/api/security/oauth/token",
+            "scopes": {
+              "Read": "read authorization for API"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
