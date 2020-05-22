@@ -119,11 +119,11 @@
   },
   "components": {
     "schemas": {
-      "keywords": {
+      "address": {
         "title": "address",
         "type": "object",
         "properties": {
-          "keywords": {
+          "address": {
             "type": "string",
             "example": "237 mapmyindia okhla"
           }
