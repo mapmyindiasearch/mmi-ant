@@ -83,7 +83,7 @@
         "deprecated": false,
         "servers": [
           {
-            "url": "https://atlas.mapmyindia.com/api",
+            "url": "https://atlas.mapmyindia.com/api/places",
             "description": "MapmyIndia Autosuggest API for development"
           }
         ]
