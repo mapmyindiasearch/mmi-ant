@@ -21,7 +21,7 @@
     }
   ],
   "paths": {
-    "/geocoding": {
+    "/geocode": {
       "get": {
         "tags": [
           "Geocoding"
