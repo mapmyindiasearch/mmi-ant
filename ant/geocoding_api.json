@@ -52,7 +52,7 @@
           {
             "name": "bias",
             "in": "query",
-            "description": "This parameter can be used to set Urban or Rural bias. A positive value sets the Urban bias and a negative value sets Rural bias.(e.g. -1,0,1)",
+            "description": "This parameter can be used to set Urban or Rural bias result. A positive value sets the Urban bias and a negative value sets Rural bias.(e.g. -1,0,1)",
             "allowEmptyValue": false,
             "schema": {
               "type": "integer"
