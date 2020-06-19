@@ -177,6 +177,78 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "overrideRadiusLimit (Claimbased)",
+            "in": "query",
+            "description": "It just take values in meters max 200 Kms",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "defaultEnabled (Claimbased)",
+            "in": "query",
+            "description": "This lets us enable / disable default ANT search when searchFor parameter is given like (0, 1)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "customCategoryCode (Claimbased)",
+            "in": "query",
+            "description": "The custom category codes that should be supported for the particular client like HSPTMT,SMISST,HSPTST,HNDAUT,CLIFVR,FODHNG,SMIBRN,TMPRSN,COVRSN,HSPCOV,HNDREP,SMIDLR,HSPSCC,HOTNST",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isAllowedCategories (Claimbased)",
+            "in": "query",
+            "description": "Used along with allowedCategories claim so that only limited category search is enabled",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "allowedCategories (Claimbased)",
+            "in": "query",
+            "description": "Allow only given category codes to be search in nearBy like HSPTMT,HSPTST,HSPCOV,CLIFVR,HSPSCC,FODHNG,HOTNST,TMPRSN",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchFor (Claimbased)",
+            "in": "query",
+            "description": "For searching within specific datasets: like Honda or EV charging stations; depends on defaultEnabled",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "autoExpand (Claimbased)",
+            "in": "query",
+            "description": "Allows search to auto expand radius when no result found overrideRadiusLimit needs to be enabled for this to be used",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customDb (Calimbased)",
+            "in": "query",
+            "description": "Whether to search in master or custom index based on searchFor value",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -246,7 +318,7 @@
             }
           },
           {
-            "name": "overrideRadiusLimit (Restricted)",
+            "name": "overrideRadiusLimit (Claimbased)",
             "in": "query",
             "description": "It just take values in meters max 200 Kms",
             "allowEmptyValue": false,
@@ -255,7 +327,7 @@
             }
           },
           {
-            "name": "defaultEnabled (Restricted)",
+            "name": "defaultEnabled (Claimbased)",
             "in": "query",
             "description": "This lets us enable / disable default ANT search when searchFor parameter is given like (0, 1)",
             "allowEmptyValue": false,
@@ -264,7 +336,7 @@
             }
           },
           {
-            "name": "customCategoryCode (Restricted)",
+            "name": "customCategoryCode (Claimbased)",
             "in": "query",
             "description": "The custom category codes that should be supported for the particular client like HSPTMT,SMISST,HSPTST,HNDAUT,CLIFVR,FODHNG,SMIBRN,TMPRSN,COVRSN,HSPCOV,HNDREP,SMIDLR,HSPSCC,HOTNST",
             "allowEmptyValue": false,
@@ -273,7 +345,7 @@
             }
           },
           {
-            "name": "isAllowedCategories (Restricted)",
+            "name": "isAllowedCategories (Claimbased)",
             "in": "query",
             "description": "Used along with allowedCategories claim so that only limited category search is enabled",
             "allowEmptyValue": false,
@@ -282,7 +354,7 @@
             }
           },
           {
-            "name": "allowedCategories (Restricted)",
+            "name": "allowedCategories (Claimbased)",
             "in": "query",
             "description": "Allow only given category codes to be search in nearBy like HSPTMT,HSPTST,HSPCOV,CLIFVR,HSPSCC,FODHNG,HOTNST,TMPRSN",
             "allowEmptyValue": false,
@@ -300,7 +372,7 @@
             }
           },
           {
-            "name": "searchFor (Restricted)",
+            "name": "searchFor (Claimbased)",
             "in": "query",
             "description": "For searching within specific datasets: like Honda or EV charging stations; depends on defaultEnabled",
             "allowEmptyValue": false,
@@ -309,7 +381,7 @@
             }
           },
           {
-            "name": "autoExpand (Restricted)",
+            "name": "autoExpand (Claimbased)",
             "in": "query",
             "description": "Allows search to auto expand radius when no result found overrideRadiusLimit needs to be enabled for this to be used",
             "allowEmptyValue": false,
@@ -318,7 +390,7 @@
             }
           },
           {
-            "name": "customDb (Restricted)",
+            "name": "customDb (Claimbased)",
             "in": "query",
             "description": "Whether to search in master or custom index based on searchFor value",
             "allowEmptyValue": false,
