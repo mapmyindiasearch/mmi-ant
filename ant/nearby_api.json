@@ -746,6 +746,167 @@
           }
         }
       },
+      "Claim_Response": {
+        "title": "Claim_Response",
+        "type": "object",
+        "properties": {
+          "addresstokens": {
+            "$ref": "#/components/schemas/Claim_Addresstoken_Response"
+          },
+          "distance": {
+            "type": "integer",
+            "example": 419,
+            "description": "provides the distance from the provided location bias in meters"
+          },
+          "eloc": {
+            "type": "string",
+            "example": "E95G6D",
+            "description": "Place Id of the location 6-char alphanumeric"
+          },
+          "email": {
+            "type": "string",
+            "example": "support@kaffacerrado.com",
+            "description": "Email for contact"
+          },
+          "entryLatitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.5391550000001,
+            "description": "latitude of the entrance of the location"
+          },
+          "entryLongitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.2700790000001,
+            "description": "longitude of the entrance of the location"
+          },
+          "hourOfOperation": {
+            "type": "string",
+            "example": "Mon-Sun 09:30-18:00",
+            "description": "To allow access open_close_hours"
+          },
+          "keywords": {
+            "type": "string",
+            "example": [
+              "FODCOF"
+            ],
+            "description": "provides an array of matched keywords or codes"
+          },
+          "landlineNo": {
+            "type": "number",
+            "example": "+911141325350, +911141326705",
+            "description": "phone no for contact"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.5389700000001,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.2701960000001,
+            "description": "longitude of the location"
+          },
+          "mobileNo": {
+            "type": "number",
+            "example": "",
+            "description": "Phone number for contact"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": 1,
+            "description": "the order where this result should be placed"
+          },
+          "placeAddress": {
+            "type": "string",
+            "example": "A 77, Pocket D, Okhla Phase - 2, Opposite Intex Building, New Delhi, Delhi, 110020",
+            "description": "Address of the location"
+          },
+          "placeName": {
+            "type": "string",
+            "example": "Kaffa Cerrado The Roastery",
+            "description": "Name of the location"
+          },
+          "type": {
+            "type": "string",
+            "example": "POI ",
+            "description": "Type of location POI or Country or City"
+          }
+        }
+      },
+      "Claim_Addresstoken_Response": {
+        "title": "Claim_Addresstoken_Response",
+        "type": "object",
+        "properties": {
+          "houseNumber": {
+            "type": "string",
+            "example": "",
+            "description": "The house number of the location"
+          },
+          "houseName": {
+            "type": "string",
+            "example": "",
+            "description": "The house name of the location"
+          },
+          "poi": {
+            "type": "string",
+            "example": "Kaffa Cerrado The Roastery",
+            "description": "The name of the POI if the location is a place of interest (POI)"
+          },
+          "street": {
+            "type": "string",
+            "example": "",
+            "description": "The name of the street of the location"
+          },
+          "subSubLocality": {
+            "type": "string",
+            "example": "",
+            "description": "The name of the sub-sub-locality where the location exists"
+          },
+          "subLocality": {
+            "type": "string",
+            "example": "Block A",
+            "description": "The name of the sub-locality where the location exists"
+          },
+          "locality": {
+            "type": "string",
+            "example": "Okhla Industrial Estate Phase 2;Okhla Phase 2;Okhla Industrial Area Phase 2",
+            "description": "The name of the locality where the location exists"
+          },
+          "village": {
+            "type": "string",
+            "example": "",
+            "description": "The name of the village if the location exists in a village"
+          },
+          "subDistrict": {
+            "type": "string",
+            "example": "Kalkaji",
+            "description": "The name of the sub-district in which the location exists"
+          },
+          "district": {
+            "type": "string",
+            "example": "South East Delhi District",
+            "description": "The name of the district in which the location exists"
+          },
+          "city": {
+            "type": "string",
+            "example": "New Delhi",
+            "description": "The name of the city in which the location exists"
+          },
+          "state": {
+            "type": "string",
+            "example": "Delhi",
+            "description": "The name of the state in which the location exists"
+          },
+          "pincode": {
+            "type": "string",
+            "example": "110020",
+            "description": "The pin code of the location area."
+          }
+        }
+      },
       "Indic_Response": {
         "title": "Indic_Response",
         "type": "object",
