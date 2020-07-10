@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Autosuggest API",
-    "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.</p> <p>MapmyIndia Autosuggest API Platform provides following advance features: <ul> <li>POD</li> <li>Filter</li> </ul><p></p> <h3>POD</h3> <p>It takes in the place type code which helps in restricting the results to certain chosen type. Parameter used is *\"pod\"*. </p> <p>Below mentioned are the codes for the pod:</p> <b>SLC</b>: SubLocality, <b>LC</b>:Locality, <b>CITY</b>: City, <b>VLG</b>:Village, <b>SDIST</b>: SubDistrict, <b>DIST</b>: District, <b>STATE</b>: State, <b>SSLC</b>: SubSubLocatlity.</br></br>  <h3>Filter</h3> <p> *\"filter\"* parameter helps you restrict the result by mentioning a bounded area, certain eloc (6 digit code to any poi, locality, city, etc.) or Pincode, below mentioned are the types:</p> <ul><li><b>pin*</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}  <li><b>bounds</b>: lat1, lng1; lat2, lng2 (latitude, longitude) {e.g. filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513} <li><b>cop</b>: {eloc} (string) {e.g. filter=cop:YMCZ0J} </ul> </br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
+    "description": "The Autosuggest API helps users to complete queries faster by adding intelligent search capabilities to your web or mobile app. This API returns a list of results as well as suggested queries as the user types in the search field.</p> <p>MapmyIndia Autosuggest API Platform provides following advance features: <ul> <li>POD</li> <li>Filter</li> </ul><p></p> <h3>POD</h3> <p>It takes in the place type code which helps in restricting the results to certain chosen type. Parameter used is *\"pod\"*. </p> <p>Below mentioned are the codes for the pod:</p> <b>SLC</b>: SubLocality, <b>LC</b>:Locality, <b>CITY</b>: City, <b>VLG</b>:Village, <b>SDIST</b>: SubDistrict, <b>DIST</b>: District, <b>STATE</b>: State, <b>SSLC</b>: SubSubLocatlity.</br></br>  <h3>Filter</h3> <p> *\"filter\"* parameter helps you restrict the result by mentioning a bounded area, certain eloc (6 digit code to any poi, locality, city, etc.) or Pincode, below mentioned are the types:</p> <ul><li><b>pin*</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}  <li><b>bounds</b>: lat1, lng1; lat2, lng2 (latitude, longitude) {e.g. filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513} <li><b>cop</b>: {eloc} (string) {e.g. filter=cop:YMCZ0J} </ul> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
     "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
     "contact": {
       "name": "MapmyIndia API Support",
@@ -93,29 +93,132 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "itemCount [Restricted]",
-            "in": "query",
-            "description": "provides a configurable parameter to set number of results (default: 10, min: 1, max: 20)",
-            "allowEmptyValue": false,
-            "schema": {
-              "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
             }
           },
+          "204": {
+            "description": "No matches we are found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily              /hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong"
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "deprecated": false,
+        "servers": [
           {
-            "name": "bridge [Restricted]",
+            "url": "https://atlas.mapmyindia.com/api",
+            "description": "MapmyIndia Autosuggest API for development"
+          }
+        ]
+      }
+    },
+    "/places/search_claimbased/json": {
+      "get": {
+        "tags": [
+          "Autosuggest"
+        ],
+        "description": "Note : If no location is provided and the corona keyword is given, the search will exhibit as normal auto suggest behavior. No smart behavior will be exhibited.",
+        "operationId": "Autosuggest_claimbased",
+        "parameters": [
+          {
+            "name": "smartBehavior (Claimbased)",
             "in": "query",
-            "description": "provides a parameter to configure search suggestions in the API response. It’ll allow the API to provide link to a suggested nearby API search. This parameter is private.",
+            "description": "The claim will act as a Boolean to enable the Autosuggest API to switch to nearby search.",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "explain [Restricted]",
+            "name": "allowedCategories (Claimbased)",
             "in": "query",
-            "description": "provides a parameter to configure search suggestions in the API response. It’ll allow the API to provide link to a suggested nearby API search. This parameter is private",
+            "description": "This claim will have a list of categories allowed to a user. Any given input category that is not in this list will be ignored and hence not searched.",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Some text to get suggestions of places(e.g. Shoes, Coffee, Versace, Gucci, H&M, Adidas, Starbucks, B130 {POI, House Number, keyword, tag})",
+            "required": true,
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "It takes in the country code. LKA, IND, BTN, BGD, NPL for Sri-Lanka, India, Bhutan, Bangladesh, Nepal respectively. Default is India (IND)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "Provides the location around which the search will be performed {string (latitude[double],longitude[double])} (e.g. location=28.454,77.435)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoom",
+            "in": "query",
+            "description": "takes the zoom level of the current scope of the map (min: 4, max: 18).",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "pod",
+            "in": "query",
+            "description": "It takes in the place type code which helps in restricting the results to certain chosen type.(e.g. SLC: SubLocality, LC:Locality, CITY: City, VLG:Village, SDIST: SubDistrict, DIST: District, STATE: State, SSLC: SubSubLocatlity.)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": " This parameter helps you restrict the result by mentioning a bounded area, certain eloc (6 digit code to any poi, locality, city, etc.) or Pincode.<li>filter=pin:110055 <li> filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513<li>filter=cop:YMCZ0J",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tokenizeAddress",
+            "in": "query",
+            "description": "Valueless parameter which provides the different address attributes in a structured object.",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -128,7 +231,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Response"
+                  "$ref": "#/components/schemas/Claimbased_Response"
                 }
               }
             }
@@ -350,6 +453,101 @@
             "type": "integer",
             "example": 110011,
             "description": "postal code of the place"
+          }
+        }
+      },
+      "Claimbased_Response": {
+        "title": "Claimbased_Response",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "POI",
+            "description": "type of location POI or Country or City"
+          },
+          "typeX": {
+            "type": "string",
+            "example": "7"
+          },
+          "placeAdress": {
+            "type": "string",
+            "example": "Sukhdev Vihar Road, Sukhdev Vihar, New Delhi, Delhi, 110025",
+            "description": "Address of the location"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.554093,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.2741350000001,
+            "description": "longitude of the location"
+          },
+          "eloc": {
+            "type": "string",
+            "example": "5FD0BP",
+            "description": "Place Id of the location 6-char alphanumeric"
+          },
+          "entryLatitude": {
+            "type": "number",
+            "format": "double",
+            "example": 28.5550260000001,
+            "description": "latitude of the entrance of the location."
+          },
+          "entryLongitude": {
+            "type": "number",
+            "format": "double",
+            "example": 77.2738540000001,
+            "description": "longitude of the entrance of the location."
+          },
+          "placeName": {
+            "type": "string",
+            "example": "CSIR IGI",
+            "description": "Name of the location."
+          },
+          "alternateName": {
+            "type": "string",
+            "example": ""
+          },
+          "keywords": {
+            "type": "string",
+            "example": [
+              "SHPCOM"
+            ],
+            "description": "contains the category code to which the POI result(if applicable) belongs to."
+          },
+          "addressTokens": {
+            "type": "string",
+            "example": {},
+            "description": "Token of address"
+          },
+          "P": {
+            "type": "integer",
+            "example": "8060",
+            "description": "For internal use only"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": "1",
+            "description": "The order where this result should be placed"
+          },
+          "score": {
+            "type": "number",
+            "format": "double",
+            "example": 0,
+            "description": "For internal use only"
+          },
+          "suggester": {
+            "type": "string",
+            "example": null,
+            "description": "For internal use only"
+          },
+          "richInfo": {
+            "type": "string",
+            "example": {}
           }
         }
       }
