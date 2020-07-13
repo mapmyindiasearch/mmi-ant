@@ -211,7 +211,10 @@
             "description": "Used along with allowedCategories claim so that only limited category search is enabled",
             "allowEmptyValue": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                ""
+              ]
             }
           },
           {
@@ -256,7 +259,10 @@
             "description": "It tell us the time, how long it is open and closed",
             "allowEmptyValue": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                ""
+              ]
             }
           }
         ],
@@ -359,7 +365,10 @@
             "description": "Used along with allowedCategories claim so that only limited category search is enabled",
             "allowEmptyValue": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                ""
+              ]
             }
           },
           {
@@ -413,7 +422,10 @@
             "description": "It tell us the time, how long it is open and closed",
             "allowEmptyValue": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                ""
+              ]
             }
           }
         ],
