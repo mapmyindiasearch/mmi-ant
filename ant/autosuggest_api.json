@@ -148,7 +148,10 @@
             "description": "The claim will act as a Boolean to enable the Autosuggest API to switch to nearby search.",
             "allowEmptyValue": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                ""
+              ]
             }
           },
           {
