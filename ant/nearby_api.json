@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Nearby API",
-    "description": "Nearby Places API, enables you to add discovery and search of nearby POIs by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category. <p>MapmyIndia Nearby API Platform provides following advance features:</p>  <ul> <li>Customized Radius* <li>Custom Category Code <li>POD <li>Filter <li>searchBy <li>sortBy </ul> <h3>Customized Radius</h3> <p><ul><li>The customized radius will be provisioned and managed by Anchor. <li>Added `overrideRadiusLimit` claim. It takes radius value(number only) in meters. The value must be greater than 249. <li>The behavior works with custom datasets only, such as Honda. <li>Customized Radius is min radius : 250m, max radius : 50 Km and  by default : 10 Km </li> </ul></p> <h3>Custom Category Code</h3> <p>This will enable custom category code based nearby searching for customers*(e.g. Honda, HDFC)*.The search can be performed on the basis of either custom category code or MMI category codes or keywords. The output contains standard fields and a richInfo object for client-specific data. The RichInfo can have dynamic response parameters as per customer requirement. This can be enabled on the basis of configuration provided at the time of onboarding customer data.</p> <ul> <li>Pass Custom Codes like *Keywords*.</li> <li>The custom code keywords like HNDAUT, HNDREP for searching near pois like Honda Stores.</li> </ul> <h3>POD</h3> <p> Introducing \"pod\" parameter to search for villages. This parameter accepts \"vlg\" as value. The radius for village provides the range of distance. The radius for village search is 50 KM fixed.</p> <h3>Filter</h3> <p>The filter feature in Nearby API empowers the user a fine discovery of EV charging stations along with the existing keyword and category code lookups. It uses `key:value` pair(s).</br> *(e.g. brand_id:ABC123)*</p> <ul>  <li>Currently, filters are supported on brand id, connector type and car model.</br></br> <li>Each `key:value`pair is seperated by a seperator`,`</br> *(e.g. filter=brand_id:abc123,mac_plug_type:PN3)*.</br></br>  <li>We can use two or more `values` for a `key` by putting either `OR(;)` or `AND($)` operator </br>*(e.g. brand_id:abc123;xyz123,mac_plug_type:PN3&PN2)*.</br></br> <li>By default  `key:value` pairs are treated as `AND($)` case.    </ul>  <p>Suppose you want to search all electric vehical charging station of a particular brand*(e.g. \"Honda\" )* and of a particular plug type *(e.g. \"PN3\")* then you can use filter as:</br> </br> *(filter=brand_id:HONDAV,mac_plug_type:PN3)*</br></br> where HONDAV is brand_id for Honda and PN3 is plug type. </p></br> <b>Keys</b>: \"brand_id\", \"model\", \"mac_plug_type\".</p> <h4>Below is the Prod and Indic URL for your testing</h4> <p>*https://atlasweb.mapmyindia.in/api/places/nearby/json?keywords=coffee&refLocation=28.535247, 77.270918&bridge&access_token=fef60970-1929-4e98-ad58-3edfc19a88b2* </br> https://atlasweb.mapmyindia.in/api/places/nearby/json?keywords=बर्गर किंग&refLocation=28.535247, 77.270918&bridge&access_token=fef60970-1929-4e98-ad58-3edfc19a88b2 </p></br></br> <b>Note:</b> Currently it works for Electric Vehicle Charging Stations. </br></br> <h3>searchBy</h3> <p>Search and Sort Nearby Places on the basis of either *\"Distance\"* or *\"Relevance/Importance\"*.</p> <ul> <li> *dist* keyword is used to sort result in increasing order of distance, means nearest place related on top.</br></br> <li>*imp* will use the priority to give important or highest priority result on top.  </br></br> <li>By Default it will use *Distance*</ul> </br> <h3>sortBy</h3> <p>sortBy will sort the given result on the basis of either *\"Distance\"* or *\"Relevance/Importance\"*.</p> <ul> <li> *dist* keyword is used to sort the given result in increasing order of distance, means nearest place related will show on top.</br></br> <li>*imp* will use the priority to give important or highest priority result on top.  </br></br> <li>By Default it will use *Distance*</ul> </br></br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br> ",
+    "description": "Nearby Places API, enables you to add discovery and search of nearby POIs by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category. <p>MapmyIndia Nearby API Platform provides following advance features:</p>  <ul> <li>Customized Radius* <li>Custom Category Code <li>POD <li>Filter <li>searchBy <li>sortBy </ul> <h3>Customized Radius</h3> <p><ul><li>The customized radius will be provisioned and managed by Anchor. <li>Added `overrideRadiusLimit` claim. It takes radius value(number only) in meters. The value must be greater than 249. <li>The behavior works with custom datasets only, such as Honda. <li>Customized Radius is min radius : 250m, max radius : 50 Km and  by default : 10 Km </li> </ul></p> <h3>Custom Category Code</h3> <p>This will enable custom category code based nearby searching for customers*(e.g. Honda, HDFC)*.The search can be performed on the basis of either custom category code or MMI category codes or keywords. The output contains standard fields and a richInfo object for client-specific data. The RichInfo can have dynamic response parameters as per customer requirement. This can be enabled on the basis of configuration provided at the time of onboarding customer data.</p> <ul> <li>Pass Custom Codes like *Keywords*.</li> <li>The custom code keywords like HNDAUT, HNDREP for searching near pois like Honda Stores.</li> </ul> <h3>POD</h3> <p> Introducing \"pod\" parameter to search for villages. This parameter accepts \"vlg\" as value. The radius for village provides the range of distance. The radius for village search is 50 KM fixed.</p> <h3>Filter</h3> <p>The filter feature in Nearby API empowers the user a fine discovery of EV charging stations along with the existing keyword and category code lookups. It uses `key:value` pair(s).</br> *(e.g. brand_id:ABC123)*</p> <ul>  <li>Currently, filters are supported on brand id, connector type and car model.</br></br> <li>Each `key:value`pair is seperated by a seperator`,`</br> *(e.g. filter=brand_id:abc123,mac_plug_type:PN3)*.</br></br>  <li>We can use two or more `values` for a `key` by putting either `OR(;)` or `AND($)` operator </br>*(e.g. brand_id:abc123;xyz123,mac_plug_type:PN3&PN2)*.</br></br> <li>By default  `key:value` pairs are treated as `AND($)` case.    </ul>  <p>Suppose you want to search all electric vehical charging station of a particular brand*(e.g. \"Honda\" )* and of a particular plug type *(e.g. \"PN3\")* then you can use filter as:</br> </br> *(filter=brand_id:HONDAV,mac_plug_type:PN3)*</br></br> where HONDAV is brand_id for Honda and PN3 is plug type. </p></br> <b>Keys</b>: \"brand_id\", \"model\", \"mac_plug_type\".</p> <h4>Below is the Prod and Indic URL for your testing</h4> <p>*https://atlasweb.mapmyindia.in/api/places/nearby/json?keywords=coffee&refLocation=28.535247, 77.270918&bridge&access_token=fef60970-1929-4e98-ad58-3edfc19a88b2* </br> https://atlasweb.mapmyindia.in/api/places/nearby/json?keywords=à¤¬à¤°à¥à¤—à¤° à¤•à¤¿à¤‚à¤—&refLocation=28.535247, 77.270918&bridge&access_token=fef60970-1929-4e98-ad58-3edfc19a88b2 </p></br></br> <b>Note:</b> Currently it works for Electric Vehicle Charging Stations. </br></br> <h3>searchBy</h3> <p>Search and Sort Nearby Places on the basis of either *\"Distance\"* or *\"Relevance/Importance\"*.</p> <ul> <li> *dist* keyword is used to sort result in increasing order of distance, means nearest place related on top.</br></br> <li>*imp* will use the priority to give important or highest priority result on top.  </br></br> <li>By Default it will use *Distance*</ul> </br> <h3>sortBy</h3> <p>sortBy will sort the given result on the basis of either *\"Distance\"* or *\"Relevance/Importance\"*.</p> <ul> <li> *dist* keyword is used to sort the given result in increasing order of distance, means nearest place related will show on top.</br></br> <li>*imp* will use the priority to give important or highest priority result on top.  </br></br> <li>By Default it will use *Distance*</ul> </br></br> <h2>Operators</h2><p>To send multiple keywords in a request, weâ€™ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b></br> <li><a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/sample/mapmyindia-maps-auto-suggest-api-example.php\">Live Demo</a> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br> ",
     "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
     "contact": {
       "name": "MapmyIndia API Support",
@@ -163,7 +163,7 @@
           {
             "name": "explain [Restricted]",
             "in": "query",
-            "description": "provides explanation as to why did you receive the result that you’ve received.",
+            "description": "provides explanation as to why did you receive the result that youâ€™ve received.",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -278,10 +278,10 @@
             }
           },
           "204": {
-            "description": "No matches we’re found for the provided query"
+            "description": "No matches weâ€™re found for the provided query"
           },
           "400": {
-            "description": "Something’s just not right with the request"
+            "description": "Somethingâ€™s just not right with the request"
           },
           "401": {
             "description": "Access Denied."
@@ -315,7 +315,7 @@
           {
             "name": "keywords",
             "in": "query",
-            "description": "Generic keywrods search like होटल",
+            "description": "Generic keywrods search like à¤¹à¥‹à¤Ÿà¤²",
             "allowEmptyValue": false,
             "required": true,
             "schema": {
@@ -441,10 +441,10 @@
             }
           },
           "204": {
-            "description": "No matches we’re found for the provided query"
+            "description": "No matches weâ€™re found for the provided query"
           },
           "400": {
-            "description": "Something’s just not right with the request"
+            "description": "Somethingâ€™s just not right with the request"
           },
           "401": {
             "description": "Access Denied."
@@ -556,79 +556,108 @@
         "title": "Response",
         "type": "object",
         "properties": {
-          "distance": {
-            "type": "integer",
-            "example": 64,
-            "description": "provides the distance from the provided location bias in meters"
+          "suggestedLocation": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "distance": {
+                  "type": "integer",
+                  "example": 64,
+                  "description": "provides the distance from the provided location bias in meters"
+                },
+                "eloc": {
+                  "type": "string",
+                  "example": "CHZZ3S",
+                  "description": "Place Id of the location 6-char alphanumeric"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "",
+                  "description": "Email for contact"
+                },
+                "entryLatitude": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 28.631708,
+                  "description": "latitude of the entrance of the location"
+                },
+                "entryLongitude": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 77.21665,
+                  "description": "longitude of the entrance of the location"
+                },
+                "keywords": {
+                  "type": "string",
+                  "example": "FODCON",
+                  "description": "provides an array of matched keywords or codes"
+                },
+                "landlineNo": {
+                  "type": "number",
+                  "example": 911133107634,
+                  "description": "phone no for contact"
+                },
+                "latitude": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 28.631834,
+                  "description": "Latitude of the location"
+                },
+                "longitude": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 77.2169160000001,
+                  "description": "longitude of the location"
+                },
+                "mobileNo": {
+                  "type": "number",
+                  "example": 919999827144,
+                  "description": "Phone number for contact"
+                },
+                "orderIndex": {
+                  "type": "integer",
+                  "example": 1,
+                  "description": "the order where this result should be placed"
+                },
+                "placeAddress": {
+                  "type": "string",
+                  "example": "G-72, 1st Floor, Outer Circle, Connaught Place, New Delhi, Delhi, 110001\"",
+                  "description": "Address of the location"
+                },
+                "placeName": {
+                  "type": "string",
+                  "example": "Lord of The Drinks",
+                  "description": "Name of the location"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "poi",
+                  "description": "Type of location POI or Country or City"
+                }
+              }
+            }
           },
-          "eloc": {
-            "type": "string",
-            "example": "CHZZ3S",
-            "description": "Place Id of the location 6-char alphanumeric"
-          },
-          "email": {
-            "type": "string",
-            "example": "",
-            "description": "Email for contact"
-          },
-          "entryLatitude": {
-            "type": "number",
-            "format": "double",
-            "example": 28.631708,
-            "description": "latitude of the entrance of the location"
-          },
-          "entryLongitude": {
-            "type": "number",
-            "format": "double",
-            "example": 77.21665,
-            "description": "longitude of the entrance of the location"
-          },
-          "keywords": {
-            "type": "string",
-            "example": "FODCON",
-            "description": "provides an array of matched keywords or codes"
-          },
-          "landlineNo": {
-            "type": "number",
-            "example": 911133107634,
-            "description": "phone no for contact"
-          },
-          "latitude": {
-            "type": "number",
-            "format": "double",
-            "example": 28.631834,
-            "description": "Latitude of the location"
-          },
-          "longitude": {
-            "type": "number",
-            "format": "double",
-            "example": 77.2169160000001,
-            "description": "longitude of the location"
-          },
-          "mobileNo": {
-            "type": "number",
-            "example": 919999827144,
-            "description": "Phone number for contact"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "example": 1,
-            "description": "the order where this result should be placed"
-          },
-          "placeAddress": {
-            "type": "string",
-            "example": "G-72, 1st Floor, Outer Circle, Connaught Place, New Delhi, Delhi, 110001\"",
-            "description": "Address of the location"
-          },
-          "placeName": {
-            "type": "string",
-            "example": "Lord of The Drinks",
-            "description": "Name of the location"
-          },
-          "type": {
-            "type": "string",
-            "example": "poi",
-            "description": "Type of location POI or Country or City"
+          "pageInfo": {
+            "type": "object",
+            "properties": {
+              "pageCount": {
+                "type": "integer",
+                "example": 1
+              },
+              "totalHits": {
+                "type": "integer",
+                "example": 4997
+              },
+              "totalPages": {
+                "type": "integer",
+                "example": 500
+              },
+              "pageSize": {
+                "type": "integer",
+                "example": 10
+              }
+            }
           }
         }
       },
@@ -979,7 +1008,7 @@
           "keywords": {
             "type": "string",
             "example": [
-              "एफ़ओडीएफ़एफ़डी"
+              "à¤à¥žà¤“à¤¡à¥€à¤à¥žà¤à¥žà¤¡à¥€"
             ],
             "description": "provides an array of matched keywords or codes"
           },
@@ -1012,12 +1041,12 @@
           },
           "placeAddress": {
             "type": "string",
-            "example": "एपीक्योरिया फ़ूड फॉर ऑल, नेहरू प्लेस मेट्रो स्टेशन, नेहरू प्लेस, नई दिल्ली",
+            "example": "à¤à¤ªà¥€à¤•à¥à¤¯à¥‹à¤°à¤¿à¤¯à¤¾ à¥žà¥‚à¤¡ à¤«à¥‰à¤° à¤‘à¤², à¤¨à¥‡à¤¹à¤°à¥‚ à¤ªà¥à¤²à¥‡à¤¸ à¤®à¥‡à¤Ÿà¥à¤°à¥‹ à¤¸à¥à¤Ÿà¥‡à¤¶à¤¨, à¤¨à¥‡à¤¹à¤°à¥‚ à¤ªà¥à¤²à¥‡à¤¸, à¤¨à¤ˆ à¤¦à¤¿à¤²à¥à¤²à¥€",
             "description": "Address of the location"
           },
           "placeName": {
             "type": "string",
-            "example": "बर्गर किंग नेहरू प्लेस",
+            "example": "à¤¬à¤°à¥à¤—à¤° à¤•à¤¿à¤‚à¤— à¤¨à¥‡à¤¹à¤°à¥‚ à¤ªà¥à¤²à¥‡à¤¸",
             "description": "Name of the location"
           },
           "type": {
@@ -1043,7 +1072,7 @@
           },
           "poi": {
             "type": "string",
-            "example": "बर्गर किंग",
+            "example": "à¤¬à¤°à¥à¤—à¤° à¤•à¤¿à¤‚à¤—",
             "description": "The name of the POI if the location is a place of interest (POI)"
           },
           "street": {
@@ -1063,7 +1092,7 @@
           },
           "locality": {
             "type": "string",
-            "example": "नेहरू प्लेस",
+            "example": "à¤¨à¥‡à¤¹à¤°à¥‚ à¤ªà¥à¤²à¥‡à¤¸",
             "description": "The name of the locality where the location exists"
           },
           "village": {
@@ -1073,22 +1102,22 @@
           },
           "subDistrict": {
             "type": "string",
-            "example": "कालकाजी",
+            "example": "à¤•à¤¾à¤²à¤•à¤¾à¤œà¥€",
             "description": "The name of the sub-district in which the location exists"
           },
           "district": {
             "type": "string",
-            "example": "साउथ ईस्ट दिल्ली डिस्ट्रिक्ट",
+            "example": "à¤¸à¤¾à¤‰à¤¥ à¤ˆà¤¸à¥à¤Ÿ à¤¦à¤¿à¤²à¥à¤²à¥€ à¤¡à¤¿à¤¸à¥à¤Ÿà¥à¤°à¤¿à¤•à¥à¤Ÿ",
             "description": "The name of the district in which the location exists"
           },
           "city": {
             "type": "string",
-            "example": "नई दिल्ली",
+            "example": "à¤¨à¤ˆ à¤¦à¤¿à¤²à¥à¤²à¥€",
             "description": "The name of the city in which the location exists"
           },
           "state": {
             "type": "string",
-            "example": "दिल्ली",
+            "example": "à¤¦à¤¿à¤²à¥à¤²à¥€",
             "description": "The name of the state in which the location exists"
           },
           "pincode": {
