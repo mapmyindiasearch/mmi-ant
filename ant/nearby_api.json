@@ -107,7 +107,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "*key:value* pair to specified our seach.(e.g. For all Mahindra Electric EV stations: *filter=cat_code:V Charging Station,brand_id:B420*, where EV Charging Station is category code and B420 is brand_id for Mahindra Electric)",
+            "description": "*key:value* pair to specified our seach.(e.g. For all Mahindra Electric EV stations: *filter=cat_code:EV Charging Station,brand_id:B420*, where EV Charging Station is category code and B420 is brand_id for Mahindra Electric)",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
@@ -525,7 +525,7 @@
           {
             "name": "filter",
             "in": "query",
-            "description": "*key:value* pair to specified our seach.(e.g. For all Mahindra Electric EV stations: *filter=cat_code:V Charging Station,brand_id:B420*, where EV Charging Station is category code and B420 is brand_id for Mahindra Electric)",
+            "description": "*key:value* pair to specified our seach.(e.g. For all Mahindra Electric EV stations: *filter=cat_code:EV Charging Station,brand_id:B420*, where EV Charging Station is category code and B420 is brand_id for Mahindra Electric)",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
