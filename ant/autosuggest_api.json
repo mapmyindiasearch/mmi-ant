@@ -266,6 +266,117 @@
           }
         ]
       }
+    },
+    "/places/indic_search/json": {
+      "get": {
+        "tags": [
+          "Autosuggest"
+        ],
+        "operationId": "IndicAutosuggest",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Some text to get suggestions of places(e.g. Shoes, Coffee, Versace, Gucci, H&M, Adidas, Starbucks, B130 {POI, House Number, keyword, tag})",
+            "required": true,
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "It takes in the country code. LKA, IND, BTN, BGD, NPL for Sri-Lanka, India, Bhutan, Bangladesh, Nepal respectively. Default is India (IND)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "Provides the location around which the search will be performed {string (latitude[double],longitude[double])} (e.g. location=28.454,77.435)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "zoom",
+            "in": "query",
+            "description": "takes the zoom level of the current scope of the map (min: 4, max: 18).",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "pod",
+            "in": "query",
+            "description": "It takes in the place type code which helps in restricting the results to certain chosen type.(e.g. SLC: SubLocality, LC:Locality, CITY: City, VLG:Village, SDIST: SubDistrict, DIST: District, STATE: State, SSLC: SubSubLocatlity.)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": " This parameter helps you restrict the result by mentioning a bounded area, certain eloc (6 digit code to any poi, locality, city, etc.) or Pincode.<li>filter=pin:110055 <li> filter=bounds: 28.598882, 77.212407; 28.467375, 77.353513<li>filter=cop:YMCZ0J",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tokenizeAddress",
+            "in": "query",
+            "description": "Valueless parameter which provides the different address attributes in a structured object.",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Indic_Response"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we are found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily              /hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong"
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api",
+            "description": "MapmyIndia Autosuggest API for development"
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -546,6 +657,99 @@
           "suggester": {
             "type": "string",
             "example": null,
+            "description": "For internal use only"
+          },
+          "richInfo": {
+            "type": "string",
+            "example": {}
+          }
+        }
+      },
+      "Indic_Response": {
+        "title": "Indic_Response",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "HOUSE_NUMBER",
+            "description": "type of location POI or Country or City"
+          },
+          "typeX": {
+            "type": "string",
+            "example": 13
+          },
+          "placeAdress": {
+            "type": "string",
+            "example": "बड़ा बाज़ार, गोल्कोण्डा, हैदराबाद, तेलंगाना",
+            "description": "Address of the location"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "example": 17.383613,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "example": 78.4057300000001,
+            "description": "longitude of the location"
+          },
+          "eloc": {
+            "type": "string",
+            "example": "XUDY3Y",
+            "description": "Place Id of the location 6-char alphanumeric"
+          },
+          "entryLatitude": {
+            "type": "number",
+            "format": "double",
+            "example": 17.383545,
+            "description": "latitude of the entrance of the location."
+          },
+          "entryLongitude": {
+            "type": "number",
+            "format": "double",
+            "example": 78.405683,
+            "description": "longitude of the entrance of the location."
+          },
+          "placeName": {
+            "type": "string",
+            "example": "9-8-353",
+            "description": "Name of the location."
+          },
+          "alternateName": {
+            "type": "string",
+            "example": ""
+          },
+          "keywords": {
+            "type": "string",
+            "example": [],
+            "description": "contains the category code to which the POI result(if applicable) belongs to."
+          },
+          "addressTokens": {
+            "type": "string",
+            "example": {},
+            "description": "Token of address"
+          },
+          "P": {
+            "type": "integer",
+            "example": 24000,
+            "description": "For internal use only"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": "1",
+            "description": "The order where this result should be placed"
+          },
+          "score": {
+            "type": "number",
+            "format": "double",
+            "example": 42.7779739557529,
+            "description": "For internal use only"
+          },
+          "suggester": {
+            "type": "string",
+            "example": "placeName",
             "description": "For internal use only"
           },
           "richInfo": {
