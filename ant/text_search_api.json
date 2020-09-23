@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Text Search API",
-    "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request. Powered with Indias most comprehensive and robust mapping functionalities. Now Available for Srilanka, Nepal, Bhutan and Bangladesh. <p>MapmyIndia Text Search API Platform provides following advance feature:</p> <ul> <li>Filter</li> </ul> <h3>Filter</h3><p>*\"filter\"* parameter helps you restrict the result by mentioning Pincode.</p><p> <b>pin</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}</p><h4>Example URL:</h4><p>*https://atlas.mapmyindia.com/api/places/textsearch/json?query=hotel&location=28.5507160000001,77.2689280000001&filter=pin:110020*</p> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
+    "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request. Powered with Indias most comprehensive and robust mapping functionalities. Now Available for Srilanka, Nepal, Bhutan and Bangladesh. <p>MapmyIndia Text Search API Platform provides following advance feature:</p> <ul> <li>Filter</li> </ul> <h3>Filter</h3><p>*\"filter\"* parameter helps you restrict the result by mentioning Pincode.</p><p> <b>pin</b>: It takes pincode/postal code of an area {e.g. filter=pin:110055}</p><h4>Below is the Prod and Indic URL for your testing</h4> <p>*https://atlas.mapmyindia.com/api/places/textsearch/json?query=hotel&location=28.5507160000001,77.2689280000001&filter=pin:110020*</br>https://atlas.mapmyindia.com/api/places/textsearch/json?query=62, शालीमार सोसाइटी, साईंबाबा नगर&location=18.521550, 73.876587&access_token=b91abec4-a8bc-459d-be42-a4fd81ece398</p> </br> <h2>Operators</h2><p>To send multiple keywords in a request, we’ve defined a couple of operators that can help the developers wrap their applications around this functionality. Below are the operators:</p> <ul> <li>The `;` Operator: This operator is an `OR` operator. Defining multiple keywords separated with a `;` would provide results that satisfies either of the keywords.\\ <li>The `$` Operator: This operator is an `AND` operator. Defining multiple keywords separated with a `$` would provide results that satisfy all the provided keywords. (default). <li>The `,` operator: This operator is a seperator for using two or more `key:value` pairs and it has functionality of `AND($)`   </ul> <p>To use these operators, simple just send in the keywords parameter like below:</br> *&keywords=coffee;tea$sea food;alcohol* </br> The above nearby search would yield in results that either provide coffee or tea but must provide either sea food or alcohol. </p><br> <h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=\"https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php\">here</a></b> </br><li><a href=\"https://www.mapmyindia.com/api/login\">Login/Sing Up</a> for API key and other access.<p></br>",
     "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
     "contact": {
       "name": "MapmyIndia API Support",
@@ -102,6 +102,119 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Text_Search_Response"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No matches we are found for the provided query"
+          },
+          "400": {
+            "description": "Something’s just not right with the request"
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "403": {
+            "description": "Services for this key has been suspended due to daily              /hourly transactions limit"
+          },
+          "500": {
+            "description": "Something went wrong"
+          },
+          "503": {
+            "description": "Maintenance Break"
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://atlas.mapmyindia.com/api",
+            "description": "MapmyIndia Text Search API for development"
+          }
+        ]
+      }
+    },
+    "/places/indic_textsearch/json": {
+      "get": {
+        "tags": [
+          "Text Search"
+        ],
+        "summary": "Text Search is an API that returns information about a set of places based on a string.",
+        "description": "Text Search API is a service that aims to provide information about a list of places on the basis of text string entered by user. It uses the location information that is provided along with the query to try to understand the request.",
+        "operationId": "Indic_TextSearchAPI",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Some text to get result of places(e.g. India Gate, Kerela, Versace, Gucci, H&M, Adidas, Starbucks, B130 {POI, House Number, keyword, tag})",
+            "required": true,
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "It takes in the country code. LKA, IND, BTN, BGD, NPL for Sri-Lanka, India, Bhutan, Bangladesh, Nepal respectively. Default is India (IND)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "Provides the location around which the search will be performed {string (latitude[double],longitude[double])} (e.g. location=28.454,77.435)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "This parameter helps you restrict the result by mentioning Pincode/Postal Code.<p>(e.g. filter=pin:110055)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "itemCount [Restricted]",
+            "in": "query",
+            "description": "provides a configurable parameter to set number of records per page (default: 10, min:1, max:20)",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "richData [Restricted]",
+            "in": "query",
+            "description": "provides rich information like reviews, star count on demand e.g. {&richData}",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "explain [Restricted]",
+            "in": "query",
+            "description": "provides explanation as to why did you receive the result that you’ve received.",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Indic_Text_Search_Response"
                 }
               }
             }
@@ -268,6 +381,107 @@
           "suggester": {
             "type": "string",
             "example": null,
+            "description": "For internal use only"
+          },
+          "addressTokens": {
+            "type": "string",
+            "example": {},
+            "description": "For internal use only"
+          },
+          "richinfo": {
+            "type": "string",
+            "example": {}
+          }
+        }
+      },
+      "Indic_Text_Search_Response": {
+        "title": "Indic_Text_Search_Response",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "HOUSE_NUMBER",
+            "description": "Type of location POI or Country or City"
+          },
+          "typeX": {
+            "type": "integer",
+            "example": 13,
+            "description": "For integer use only"
+          },
+          "placeAddress": {
+            "type": "string",
+            "example": "शालीमार सोसाइटी, साल बाबा नगर, कोन्ध्वा खुर्द, पुणे, महाराष्ट्र, 411048",
+            "description": "Address of the location"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "example": 18.4697110000001,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "example": 73.8786670000001,
+            "description": "Longitude of the location"
+          },
+          "eLoc": {
+            "type": "string",
+            "example": "KOA7JT",
+            "description": "Place Id of the location 6-char alphanumeric"
+          },
+          "entryLatitude": {
+            "type": "number",
+            "format": "double",
+            "example": 18.469798,
+            "description": "Latitude of the entrance of the location"
+          },
+          "entryLongitude": {
+            "type": "number",
+            "format": "double",
+            "example": 73.878659,
+            "description": "Longitude of the entrance of the location"
+          },
+          "placeName": {
+            "type": "string",
+            "example": 62,
+            "description": "Name of the location"
+          },
+          "alternateName": {
+            "type": "string",
+            "example": "",
+            "description": "Alternate name of the location"
+          },
+          "keywords": {
+            "type": "string",
+            "example": "[]",
+            "description": "Provides an array of matched keywords or codes"
+          },
+          "P": {
+            "type": "number",
+            "format": "long integer",
+            "example": 24000,
+            "description": "For internal use only"
+          },
+          "distance": {
+            "type": "integer",
+            "example": 0,
+            "description": "For internal use only"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "example": 1,
+            "description": "The order where this result should be placed"
+          },
+          "score": {
+            "type": "number",
+            "format": "double",
+            "example": 19577.74292461613,
+            "description": "For internal use only"
+          },
+          "suggester": {
+            "type": "string",
+            "example": "placeName",
             "description": "For internal use only"
           },
           "addressTokens": {
