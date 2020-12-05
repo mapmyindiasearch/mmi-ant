@@ -135,9 +135,9 @@ c.	<span style="color: Orange"> **Internal Parameters:** </span>
     
     d)	popularName: the field containing the popular names of the locations.
 
-## [Claim Request Parameters](#Claim-Request-Parameters)
+## [Claim Request Parameters](#Claim-Request-Parameters)<br>
 
-<table><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span><b>Claims Available</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span><b>Remarks</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;" autocomplete="off"><p><span><b>Claimed Type</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span><b>Possible Values</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span><b>isPublic</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: red">keywords</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>e.g. FODCOF, Shoes, Coffee, Versace, Gucci, H&M, Adidas, Starbucks, B130 {POI, House Number, keyword, tag}</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Valued</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span></span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Y</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span style = "color: red">refLocation</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Provides the location around which the search will be performed. e.g. refLocation=28.454,77.435</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Valued</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span></span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Y</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span style = "color: green">overrideRadiusLimit</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>It just takes values in meters.
+<table><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span><b>Claims Available</b></span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span><b>Remarks</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;" autocomplete="off"><p><span><b>Claimed Type</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span><b>Possible Values</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span><b>isPublic</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: red">keywords</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>e.g. FODCOF, Shoes, Coffee, Versace, Gucci, H&M, Adidas, Starbucks, B130 {POI, House Number, keyword, tag}</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span>Valued</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span></span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Y</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span style = "color: red">refLocation</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Provides the location around which the search will be performed. e.g. refLocation=28.454,77.435</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Valued</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span></span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Y</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span style = "color: green">overrideRadiusLimit</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>It just takes values in meters.
 max 200 kms
 </span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Not applicable</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>N</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">defaultEnabled</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>integer
 This lets us enable / disable default ANT search when searchFor parameter is given and Contains two values 0, 1. By default, a user has access to MMI data in search. To prevent the user to access the MMI data, set the value of this claim to "0". Removing this claim or setting the value to 1 will allow users to access MMI data.
@@ -152,9 +152,6 @@ For searching within specific datasets: like Honda or EV charging stations; depe
 hourOfOperation, keywords, landlineNo, latitude, longitude,
 mobileNo, orderIndex, placeAddress, placeName, type
 </span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">isPodSearch</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>A marker claim to enable the POD search. The parameter named isPodSearch is of data type LIST</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valueless</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span></span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">pod[List]</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>This claim contains the list of admins to be searched.</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>CITY, LC, STATE, SLC</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">itemCount(Number List)</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>The claim can be set to restrict the number of items in the result.</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">noPagination</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>This is a marker claim to enable/disable pagination for a user. By default, pagination is enabled for all users.</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valueless</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span></span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">isRestrictedCategories</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Allow user to search for restricted categories</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span></span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>N</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">restrictedCategories</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>This will restrict the user from access the categories in this list</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>CNTZON</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">isPartnerSearch[list]</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>A marker claim to switch on/off the partner search for a user</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>maruti ev</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span style = "color: green">partnerIds[List]</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>This claim can be used to set the partnerIds to be allowed to a user. The values in this claim can be selected from a pre-populated set of values.</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span></span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr></table>
-
-
-
 
 <table><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span><b>Claims Proposed</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;"><p><span><b>Remarks</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div class="" contenteditable="false" style="margin: 10px 5px;" autocomplete="off"><p><span><b>Claimed Type</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span><b>Possible Values</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span><b>isPublic</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>refLocation</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>String<br>
 Provides the location around which the search will be performed. e.g. refLocation=28.454,77.435</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Not applicalbe</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Not applicalbe</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Y</span></p></div></div></td></tr><tr><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>page</span></p></div></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>integer<br>
@@ -173,12 +170,12 @@ dist:desc<br>
 imp
 </span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Valued</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>dist, imp</span></p></div></td><td class="border_l border_r border_t border_b selected"><div class="wrap"><div style="margin: 10px 5px;"></div><p><span>Y</span></p></div></td></tr></table>
 
-## [Response Parameters](#Response-Parameters)
+## [Response Parameters](#Response-Parameters)<br>
 
-a.	suggestedLocations ([object])
+a.	suggestedLocations ([object])<br>
 
 
-1.  addresstokens – 
+1.  addresstokens – <br>
 
     a)	houseNumber(string): The house number of the location.<br>
     b)	houseName(string): The house name of the location.<br>
@@ -192,19 +189,19 @@ a.	suggestedLocations ([object])
     j)	district(string): The name of the district in which the location exists.<br>
     k)	city(string): The name of the city in which the location exists.<br>
     l)	state(string): The name of the state in which the location exists.<br>
-2.	distance (integer): provides the distance from the provided location bias in meters.
-3.	eLoc (string): Place Id of the location 6-char alphanumeric.
-4.	email (string): Email for contact.
-5.	entryLatitude (double): latitude of the entrance of the location.
-6.	entryLongitude (double): longitude of the entrance of the location.
-7.	keywords ( [ string ] ): provides an array of matched keywords or codes.
-8.	landlineNo (string): Email for contact.
-9.	latitude (double): Latitude of the location.
-10.	longitude (double): longitude of the location.
-11.	mobileNo : Phone number for contact.
-12.	orderIndex (integer): the order where this result should be placed
-13.	placeAddress (string): Address of the location.
-14.	placeName (string): Name of the location.
+2.	distance (integer): provides the distance from the provided location bias in meters.<br>
+3.	eLoc (string): Place Id of the location 6-char alphanumeric.<br>
+4.	email (string): Email for contact.<br>
+5.	entryLatitude (double): latitude of the entrance of the location.<br>
+6.	entryLongitude (double): longitude of the entrance of the location.<br>
+7.	keywords ( [ string ] ): provides an array of matched keywords or codes.<br>
+8.	landlineNo (string): Email for contact.<br>
+9.	latitude (double): Latitude of the location.<br>
+10.	longitude (double): longitude of the location.<br>
+11.	mobileNo : Phone number for contact.<br>
+12.	orderIndex (integer): the order where this result should be placed<br>
+13.	placeAddress (string): Address of the location.<br>
+14.	placeName (string): Name of the location.<br>
 15.	Richinfo: (string):<br>
     a)	for (string)<br>
     b)	eLoc (string)<br>
@@ -220,21 +217,21 @@ a.	suggestedLocations ([object])
     l)	openOrClose (string)<br>
     m)	type (string)<br>
 
-b.	suggestedSearches ([object])
+b.	suggestedSearches ([object])<br>
 
 
-1. 	keyword (string): what the user typed in.
-2.	Identifier (string): what did the API use for it to qualify it as a suggested search request
-3.	location (string): the name of the location to which the nearby will run in context to.
-4.	hyperlink (string): the ready-made link for the nearby API pre-initialized with all default parameters and location with code to search for.
+1. 	keyword (string): what the user typed in.<br>
+2.	Identifier (string): what did the API use for it to qualify it as a suggested search request<br>
+3.	location (string): the name of the location to which the nearby will run in context to.<br>
+4.	hyperlink (string): the ready-made link for the nearby API pre-initialized with all default parameters and location with code to search for.<br>
 
 
-## [Sample Response](#Sample-Response)
+## [Sample Response](#Sample-Response)<br>
 
-<span style="color: Orange">**Input URL:** </span> https://atlasweb.mapmyindia.in/api/places/nearby/json? access_token=<>keywords=coffee&refLocation=28.535247, 77.270918&bridge=
+<span style="color: Orange">**Input URL:** </span> https://atlasweb.mapmyindia.in/api/places/nearby/json? access_token=<>keywords=coffee&refLocation=28.535247, 77.270918&bridge=<br>
 
 <span style="color: Orange">**Response:** </span><br>
-{     
+{<br>
   "addresstokens": {<br>
     "houseNumber": "",<br>
     "houseName": "",<br>
@@ -269,12 +266,12 @@ b.	suggestedSearches ([object])
   "type": "POI "<br>
 }<br>
 
-## [Claim Sample Response](#Claim-Sample-Response)
+## [Claim Sample Response](#Claim-Sample-Response)<br>
 
-<span style="color: Orange">**Input URL:** </span> https://atlas.mapmyindia.com/api/places/nearby/json?access_token=<>&refLocation=28.628904,77.124870&keywords=TRNECS&filter=plugType:IEC&filter=brandId:B420&filter=model:Mahindra Electric
+<span style="color: Orange">**Input URL:** </span> https://atlas.mapmyindia.com/api/places/nearby/json?access_token=<>&refLocation=28.628904,77.124870&keywords=TRNECS&filter=plugType:IEC&filter=brandId:B420&filter=model:Mahindra Electric<br>
 
 <span style="color: Orange">**Response:** </span><br>
-{
+{<br>
   "addresstokens": {<br>
     "houseNumber": "",<br>
     "houseName": "",<br>
@@ -331,12 +328,12 @@ b.	suggestedSearches ([object])
   }<br>
 }<br>
 
-<p><span style = "color: green"><b>overrideRadiusLimit:</b></span> It overrides the radius limit in Nearby from 50 to max 200 kms.</p>
+<p><span style = "color: green"><b>overrideRadiusLimit:</b></span> It overrides the radius limit in Nearby from 50 to max 200 kms.</p><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json?access_toekn = <>&refLocation=28.550565, 77.268980&keywords=Fun N Food Village
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json?access_toekn = <>&refLocation=28.550565, 77.268980&keywords=Fun N Food Village<br>
 
 <span style="color: Orange"><b>Response:</b></span><br>
-        {
+        {<br>
             "addressTokens": {<br>
                 "houseNumber": "",<br>
                 "houseName": "",<br>
@@ -371,12 +368,12 @@ b.	suggestedSearches ([object])
             "type": "POI"<br>
         }
 
-<p><span style = "color: green"><b>searchFor:</b></span> For searching within specific datasets: like Honda or EV charging stations, covid19, bajaj, partners; depends on defaultEnabled. degaultEnabled Contains two values 0 or 1. Here searchFor Parameter with <b>defaultEnabled</b> is 0.</p>
+<p><span style = "color: green"><b>searchFor:</b></span> For searching within specific datasets: like Honda or EV charging stations, covid19, bajaj, partners; depends on defaultEnabled. degaultEnabled Contains two values 0 or 1. Here searchFor Parameter with <b>defaultEnabled</b> is 0.</p><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.550566, 77.268980&keywords=Charging Station&searchFor=EV
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.550566, 77.268980&keywords=Charging Station&searchFor=EV<br>
 
 <span style="color: Orange"><b>Response:</b> </span><br>
-{
+{<br>
     "suggestedLocations": [<br>
         {<br>
             "addressTokens": {<br>
@@ -425,14 +422,14 @@ b.	suggestedSearches ([object])
                 "openOrClose": ""<br>
             },<br>
             "type": "POI"<br>
-        }
+        }<br>
 
 <p><span style = "color: green"><b>searchFor:</b></span> Here <b>searchFor</b> Parameter with <b>defaultEnabled</b> is 1.</p>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>refLocation=28.550566, 77.268980&keywords=Honda
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>refLocation=28.550566, 77.268980&keywords=Honda<br>
 
 <span style="color: Orange"><b>Response:</b> </span><br>
-{
+{<br>
     "suggestedLocations": [<br>
         {<br>
             "addressTokens": {<br>
@@ -467,14 +464,14 @@ b.	suggestedSearches ([object])
             "placeAddress": "Block A, Okhla Industrial Estate Phase 2, New Delhi, Delhi, 110020",<br>
             "placeName": "Honda Power Products",<br>
             "type": "POI"<br>
-        }
+        }<br>
 
-<p><span style = "color: green"><b>customCategoryCode:-</b></span> The custom category codes that should be supported for the particular client like HSPTMT,SMISST,HSPTST,HNDAUT,CLIFVR,FODHNG,SMIBRN,TMPRSN,COVRSN,HSPCOV,HNDREP,SMIDLR,HSPSCC,HOTNST.</p>
+<p><span style = "color: green"><b>customCategoryCode:-</b></span> The custom category codes that should be supported for the particular client like HSPTMT,SMISST,HSPTST,HNDAUT,CLIFVR,FODHNG,SMIBRN,TMPRSN,COVRSN,HSPCOV,HNDREP,SMIDLR,HSPSCC,HOTNST.</p><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.469664, 77.038592&keywords=HSPCOV
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.469664, 77.038592&keywords=HSPCOV<br>
 
 <span style="color: Orange"><b>Response:</b> </span><br>
-{
+{<br>
     "suggestedLocations": [<br>
         {<br>
             "addressTokens": {<br>
@@ -509,11 +506,11 @@ b.	suggestedSearches ([object])
             "placeAddress": "Opposite Government Girls College, MG Road, Mehrauli-Gurgaon Road, Anamika Enclave, Sector 14, Gurugram, Haryana, 122007",<br>
             "placeName": "Kalyani Hospital Pvt Ltd",<br>
             "type": "POI"<br>
-          }
+          }<br>
 
-<p><span style = "color: green"><b>allowedCategories:-</b></span> **isAllowedCategories** is Used along with covidCategory claim to know that only limited category search is enabled. **allowedCategories** is allow only given category codes to be search in nearby like HSPTMT,HSPTST, HSPCOV,CLIFVR, HSPSCC,FODHNG, HOTNST,TMPRSN.</p>
+<p><span style = "color: green"><b>allowedCategories:-</b></span> **isAllowedCategories** is Used along with covidCategory claim to know that only limited category search is enabled. **allowedCategories** is allow only given category codes to be search in nearby like HSPTMT,HSPTST, HSPCOV,CLIFVR, HSPSCC,FODHNG, HOTNST,TMPRSN.</p><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.469664, 77.038592&keywords=HOTNST
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.469664, 77.038592&keywords=HOTNST<br>
 
 <span style="color: Orange"><b>Response:</b> </span><br>
       {<br>
@@ -553,9 +550,9 @@ b.	suggestedSearches ([object])
             "type": "POI"<br>
         }
 
-<p><span style = "color: green"><b>autoExpand:-</b></span> Allows search to auto expand radius when no result found.</p>
+<p><span style = "color: green"><b>autoExpand:-</b></span> Allows search to auto expand radius when no result found.</p><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.469664, 77.038592&keywords=the great india place&radius=2000000
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.469664, 77.038592&keywords=the great india place&radius=2000000<br>
 
 <span style="color: Orange"><b>Response:</b> </span><br>
 {<br>
@@ -593,11 +590,11 @@ b.	suggestedSearches ([object])
             "placeAddress": "The Great India Place, Noida, Uttar Pradesh, 201303",<br>
             "placeName": "The Great India Place Exit Gate No 10",<br>
             "type": "POI"<br>
-        }
+        }<br>
 
-<p><span style = "color: green"><b>outputFieldsList:-</b></span> List of output fields to be displayed to the user like landlineNo, entryLongitude, entryLatitude, addressTokens, distance etc.</p>
+<p><span style = "color: green"><b>outputFieldsList:-</b></span> List of output fields to be displayed to the user like landlineNo, entryLongitude, entryLatitude, addressTokens, distance etc.</p><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>refLocation=28.478103, 77.026122&keywords=pizza
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>refLocation=28.478103, 77.026122&keywords=pizza<br>
 
 <span style="color: Orange"><b>Response:</b> </span><BR>
 {<br>
@@ -609,9 +606,9 @@ b.	suggestedSearches ([object])
             "placeName": "Pizza Hood"<br>
         }
 
-<p><span style = "color: green"><b>POD:-</b></span> **isPodSearch** a marker claim to enable the <b>POD</b> search and **POD** claim contains the list of admins to be searched like CITY, LC, STATE, SLC.</P>
+<p><span style = "color: green"><b>POD:-</b></span> <b>isPodSearch</b> a marker claim to enable the <b>POD</b> search and <b>POD</b> claim contains the list of admins to be searched like CITY, LC, STATE, SLC.</P><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json?refLocation=28.478103, 77.026122&keywords=school&access_token=<>&pod=LC
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json?refLocation=28.478103, 77.026122&keywords=school&access_token=<>&pod=LC<br>
 
 <span style="color: Orange"><b>Response:</b> </span><BR>
 {<BR>
@@ -629,12 +626,12 @@ b.	suggestedSearches ([object])
             "latitude": 28.4800250000001,<BR>
             "longitude": 77.0271500000001,<BR>
             "orderIndex": 1<BR>
-        }
+        }<br>
 
 
-<p><span style = "color: green"><b>showAddressTokens:-</b></span>To allow access to address tokens.</P>
+<p><span style = "color: green"><b>showAddressTokens:-</b></span>To allow access to address tokens.</P><br>
 
-<span style="color: Orange"><b>Input URL:</b> </span>https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.550565, 77.268980&keywords=Restaurant
+<span style="color: Orange"><b>Input URL:</b> </span>https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.550565, 77.268980&keywords=Restaurant<br>
 
 <span style="color: Orange"><b>Response:</b> </span><BR>
 
@@ -673,16 +670,16 @@ b.	suggestedSearches ([object])
             "placeAddress": "Shop 47-48, Opposite Plot 239, Okhla Phase 3, New Delhi, Delhi, 110020",<br>
             "placeName": "Sonu Food Corner",<br>
             "type": "POI"<br>
-        }
+        }<br>
 
 
-<p><span style = "color: green"><b>partnerIds[List]:-</b></span> The parameter named <b>isPartnerSearch</b> is of data type LIST. This claim can be used to set the partnerIds to be allowed to a user. The values in this claim can be selected from a pre-populated set of values. For the example <b>PartnerIds</b> is 2. The list of PartnerIds is:</p>
+<p><span style = "color: green"><b>partnerIds[List]:-</b></span> The parameter named <b>isPartnerSearch</b> is of data type LIST. This claim can be used to set the partnerIds to be allowed to a user. The values in this claim can be selected from a pre-populated set of values. For the example <b>PartnerIds</b> is 2. The list of PartnerIds is:</p><br>
 -   1 : MMI<br>
 -	2 : MSIL EV<br>
 -	3 : Highway Delight<br>
 -	4 : Web SDK<br>
 
-<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.49728368,77.07214415&keywords=maruti ev
+<span style="color: Orange"><b>Input URL:</b> </span> https://atlas.mapmyindia.com/api/places/nearby/json? access_token=<>&refLocation=28.49728368,77.07214415&keywords=maruti ev<br>
 
 <span style="color: Orange"><b>Response:</b> </span><BR>
 
@@ -704,4 +701,4 @@ b.	suggestedSearches ([object])
             "placeAddress": "Old Palam Gurgaon Road",<br>
             "placeName": "Ensto AC GUR0005",<br>
             "type": "POI"<br>
-        }
+        }<br>
